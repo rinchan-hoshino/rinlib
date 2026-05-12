@@ -12,7 +12,7 @@ public final class DamageState {
     private DamageState() {}
 
     public static boolean isBroken(ItemStack stack) {
-        return !stack.isEmpty() && stack.isItemStackDamageable() && stack.getMaxDamage() > 0 && stack.getItemDamage() >= stack.getMaxDamage();
+        return stack != null && stack.isItemStackDamageable() && stack.getMaxDamage() > 0 && stack.getItemDamage() >= stack.getMaxDamage();
     }
 
     public static int clampDamage(ItemStack stack, int damage) {
