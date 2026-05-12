@@ -21,3 +21,17 @@ For local development of dependent mods:
 ```bash
 ./gradlew publishToMavenLocal
 ```
+
+## Local CI
+
+Run the same local checks as the commit hook:
+
+```bash
+./scripts/ci.sh
+```
+
+The check builds all loaders on the current branch and starts each headless server run until it reaches startup. The repository includes `.githooks/pre-commit`; enable it once per clone with:
+
+```bash
+git config core.hooksPath .githooks
+```
