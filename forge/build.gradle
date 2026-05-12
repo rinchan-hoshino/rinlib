@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.moddev.legacyforge'
+    id 'net.minecraftforge.gradle'
 }
 
 def root = rootProject
@@ -32,22 +32,32 @@ sourceSets.main.resources.srcDir tasks.register('generateModMetadata', ProcessRe
     into layout.buildDirectory.dir('generated/sources/modMetadata')
 }
 
-legacyForge {
-    version = "${root.property('minecraft_version')}-${root.property('forge_version')}"
-    mods {
-        "${modId}" {
-            sourceSet(sourceSets.main)
+minecraft {
+    mappings channel: 'official', version: root.property('minecraft_version')
+
+    runs {
+        client {
+            workingDirectory project.file('run/client')
+            mods { "${modId}" { source sourceSets.main } }
+        }
+        server {
+            workingDirectory project.file('run/server')
+            mods { "${modId}" { source sourceSets.main } }
         }
     }
 }
 
-legacyForge.ideSyncTask tasks.named('generateModMetadata')
+dependencies {
+    minecraft "net.minecraftforge:forge:${root.property('minecraft_version')}-${root.property('forge_version')}"
+}
+
+jar.finalizedBy('reobfJar')
 
 publishing {
     publications {
         mavenJava(MavenPublication) {
             artifactId = "${modId}-forge"
-            from components.java
+            artifact jar
         }
     }
 }
