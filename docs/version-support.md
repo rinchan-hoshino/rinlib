@@ -26,3 +26,7 @@ Recommended source sharing:
 - `legacy-forge`: Minecraft 1.7.10 and 1.12.2 ports, with shared behavior kept small because package names, mappings, and lifecycle APIs differ heavily.
 
 Do not force one Java source set across all versions if that creates brittle compatibility code. The stable contract is the behavior; loader and Minecraft-version glue may differ.
+
+## Per-release modern status
+<!-- modern-status:26.1 -->
+- `26.1`: Implemented NeoForge `26.1.0.19-beta`; Fabric skipped because Yarn/official mappings are unavailable for `26.1`.
