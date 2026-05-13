@@ -26,3 +26,7 @@ Recommended source sharing:
 - `legacy-forge`: Minecraft 1.7.10 and 1.12.2 ports, with shared behavior kept small because package names, mappings, and lifecycle APIs differ heavily.
 
 Do not force one Java source set across all versions if that creates brittle compatibility code. The stable contract is the behavior; loader and Minecraft-version glue may differ.
+
+## Per-release modern status
+<!-- modern-status:1.21.11 -->
+- `1.21.11`: Skipped for now: Fabric API `0.141.4+1.21.11` fails under current Loom with `javadoc ... must have an intermediary source namespace`; NeoForge not attempted in this Fabric-first pass.
