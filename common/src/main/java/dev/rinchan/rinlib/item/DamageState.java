@@ -1,6 +1,6 @@
 package dev.rinchan.rinlib.item;
 
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.item.ItemStack;
 
 /** Shared item-durability state helpers for RinChan mods. */
 public final class DamageState {
