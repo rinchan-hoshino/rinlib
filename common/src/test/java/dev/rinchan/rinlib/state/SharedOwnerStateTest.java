@@ -30,4 +30,16 @@ class SharedOwnerStateTest {
         assertSame(legacyValue, values.get(legacyOwner));
         assertEquals(2, values.size());
     }
+    @Test
+    void removeOnlyDeletesSharedEntry() {
+        UUID legacyOwner = UUID.randomUUID();
+        Map<UUID, String> values = new HashMap<>();
+        values.put(legacyOwner, "legacy");
+        values.put(SharedOwnerState.OWNER, "shared");
+
+        assertEquals("shared", SharedOwnerState.remove(values));
+        assertFalse(SharedOwnerState.contains(values));
+        assertEquals("legacy", values.get(legacyOwner));
+    }
+
 }
