@@ -9,6 +9,7 @@ base {
 }
 
 sourceSets.main.java.srcDir rootProject.file('common/src/main/java')
+sourceSets.test.java.srcDir rootProject.file('common/src/test/java')
 sourceSets.main.resources.srcDir tasks.register('generateModMetadata', ProcessResources) {
     def replaceProperties = [
         minecraft_version_range: rootProject.minecraft_version_range,
@@ -48,6 +49,15 @@ neoForge {
 }
 
 neoForge.ideSyncTask tasks.named('generateModMetadata')
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}
 
 publishing {
     publications {

@@ -2,7 +2,7 @@
 
 RinLib is the shared runtime library for RinChan Minecraft mods.
 
-The library keeps cross-loader contracts in one place so gameplay mods can stay small and focused. The first published API covers shared durability-state helpers used by Keep My Sword.
+The library keeps cross-loader contracts in one place so gameplay mods can stay small and focused. Its stable APIs cover item durability state, a fixed shared owner for actor-keyed maps, and one-way boolean projections.
 
 ## Supported targets
 
