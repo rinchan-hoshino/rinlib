@@ -15,12 +15,6 @@ base {
 sourceSets.main.java.srcDir root.file('common/src/main/java')
 sourceSets.test.java.srcDir root.file('common/src/test/java')
 
-loom {
-    mixin {
-        defaultRefmapName.set("${modId}.refmap.json")
-    }
-}
-
 dependencies {
     minecraft "com.mojang:minecraft:${root.property('minecraft_version')}"
     mappings loom.officialMojangMappings()
