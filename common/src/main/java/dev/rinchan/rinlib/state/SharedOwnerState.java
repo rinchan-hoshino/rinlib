@@ -25,4 +25,8 @@ public final class SharedOwnerState {
         values.put(OWNER, value);
         return value;
     }
+
+    public static <V> V remove(Map<UUID, V> values) {
+        return values.remove(OWNER);
+    }
 }
