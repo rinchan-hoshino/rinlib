@@ -40,7 +40,7 @@ def resourceProperties = [
     mod_license: root.property('mod_license'),
     mod_authors: root.property('mod_authors'),
     mod_description: root.property('mod_description'),
-    minecraft_version: root.property('minecraft_version'),
+    minecraft_version: '1.19.1-alpha.22.24.a',
     fabric_loader_version: root.property('fabric_loader_version')
 ]
 
