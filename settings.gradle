@@ -12,4 +12,4 @@ plugins {
 }
 
 rootProject.name = 'rinlib'
-include 'neoforge'
+include 'fabric', 'neoforge'
