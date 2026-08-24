@@ -39,6 +39,12 @@ legacyForge {
             sourceSet(sourceSets.main)
         }
     }
+    runs {
+        server {
+            server()
+            programArgument '--nogui'
+        }
+    }
 }
 
 legacyForge.ideSyncTask tasks.named('generateModMetadata')
