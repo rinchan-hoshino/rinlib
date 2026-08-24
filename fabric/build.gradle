@@ -13,6 +13,7 @@ base {
 }
 
 sourceSets.main.java.srcDir root.file('common/src/main/java')
+sourceSets.test.java.srcDir root.file('common/src/test/java')
 
 loom {
     mixin {
@@ -25,6 +26,9 @@ dependencies {
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${root.property('fabric_loader_version')}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${root.property('fabric_api_version')}"
+    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 def resourceProperties = [
@@ -43,6 +47,10 @@ processResources {
     filesMatching('fabric.mod.json') {
         expand resourceProperties
     }
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
 }
 
 publishing {
