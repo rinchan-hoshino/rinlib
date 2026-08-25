@@ -1,23 +1,39 @@
-plugins {
-    id 'net.minecraftforge.gradle' version '6.0.+' apply false
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
 }
 
-subprojects {
-    group = rootProject.mod_group_id
-    version = rootProject.mod_version
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'maven-publish'
 
-    repositories {
-        mavenLocal()
-        mavenCentral()
-        maven { url = 'https://maven.minecraftforge.net/' }
+group = 'dev.rinchan'
+version = '0.2.0+1.12.2'
+archivesBaseName = 'rinlib-forge'
+sourceCompatibility = targetCompatibility = '1.8'
+
+minecraft {
+    version = '1.12.2-14.23.5.2847'
+    runDir = 'run'
+    mappings = 'snapshot_20171003'
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('mcmod.info') {
+        expand version: project.version
     }
+}
 
-    plugins.withType(JavaPlugin).configureEach {
-        java.toolchain.languageVersion = JavaLanguageVersion.of(8)
-        tasks.withType(JavaCompile).configureEach {
-            options.encoding = 'UTF-8'
-            sourceCompatibility = '8'
-            targetCompatibility = '8'
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+            artifactId = 'rinlib-forge'
         }
     }
 }
