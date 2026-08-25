@@ -2,13 +2,11 @@
 
 RinLib is the shared runtime library for RinChan Minecraft mods.
 
-The library keeps cross-loader contracts in one place so gameplay mods can stay small and focused. The first published API covers shared durability-state helpers used by Keep My Sword.
+The library keeps stable cross-version contracts in one place so gameplay mods can remain small and focused. Its APIs include durability state, fixed shared-owner map operations, sticky boolean projection, reentrant scoped state, death-scoped `keepInventory` projection, and version-adapted mob-effect lookup.
 
-## Supported targets
+## Version branches
 
-The first implemented line is Minecraft 1.21.1 for Fabric and NeoForge.
-
-The full target matrix is tracked in [docs/version-support.md](docs/version-support.md): 1.7.10, 1.12.2, 1.16.5, 1.20.1, 1.21.1, and the latest 26.1.x line, with Forge capped at 1.20.1, NeoForge starting at 1.20.1, and Fabric starting at 1.16.5.
+Minecraft-specific source is retained on `mc/<minecraft-version>` branches. Public artifacts and their exact loader/game-version metadata are listed on [Modrinth](https://modrinth.com/mod/rinlib).
 
 ## Build
 
@@ -24,13 +22,13 @@ For local development of dependent mods:
 
 ## Local CI
 
-Run the same local checks as the commit hook:
+Run the repository checks with:
 
 ```bash
 ./scripts/ci.sh
 ```
 
-The check builds all loaders on the current branch and starts each headless server run until it reaches startup. The repository includes `.githooks/pre-commit`; enable it once per clone with:
+The repository includes `.githooks/pre-commit`; enable it once per clone with:
 
 ```bash
 git config core.hooksPath .githooks
