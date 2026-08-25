@@ -5,59 +5,29 @@ plugins {
 }
 
 def root = rootProject
-
 def modId = root.property('mod_id')
 
-base {
-    archivesName = "${modId}-forge"
-}
-
+base { archivesName = "${modId}-forge" }
 sourceSets.main.java.srcDir root.file('common/src/main/java')
 sourceSets.main.resources.srcDir tasks.register('generateModMetadata', ProcessResources) {
-    def replaceProperties = [
-        minecraft_version_range: root.property('minecraft_version_range'),
-        forge_version_range    : root.property('forge_version_range'),
-        loader_version_range   : root.property('loader_version_range'),
-        mod_id                 : modId,
-        mod_name               : root.property('mod_name'),
-        mod_license            : root.property('mod_license'),
-        mod_version            : root.property('mod_version'),
-        mod_authors            : root.property('mod_authors'),
-        mod_description        : root.property('mod_description')
-    ]
-    inputs.properties replaceProperties
-    filteringCharset = 'UTF-8'
-    expand replaceProperties
+    def props = [minecraft_version_range: root.property('minecraft_version_range'), forge_version_range: root.property('forge_version_range'), loader_version_range: root.property('loader_version_range'), mod_id: modId, mod_name: root.property('mod_name'), mod_license: root.property('mod_license'), mod_version: root.property('mod_version'), mod_authors: root.property('mod_authors'), mod_description: root.property('mod_description')]
+    inputs.properties props
+    expand props
     from 'src/main/templates'
     into layout.buildDirectory.dir('generated/sources/modMetadata')
 }
 
-minecraft {
-    mappings channel: 'official', version: root.property('minecraft_version')
+minecraft { mappings channel: 'official', version: root.property('minecraft_version') }
+dependencies { minecraft "net.minecraftforge:forge:${root.property('minecraft_version')}-${root.property('forge_version')}" }
+jar { finalizedBy 'reobfJar' }
 
-    runs {
-        client {
-            workingDirectory project.file('run/client')
-            mods { "${modId}" { source sourceSets.main } }
-        }
-        server {
-            workingDirectory project.file('run/server')
-            mods { "${modId}" { source sourceSets.main } }
-        }
-    }
-}
-
-dependencies {
-    minecraft "net.minecraftforge:forge:${root.property('minecraft_version')}-${root.property('forge_version')}"
-}
-
-jar.finalizedBy('reobfJar')
+tasks.named('compileJava') { dependsOn tasks.named('generateModMetadata') }
 
 publishing {
     publications {
         mavenJava(MavenPublication) {
             artifactId = "${modId}-forge"
-            artifact jar
+            artifact tasks.named('jar')
         }
     }
 }
