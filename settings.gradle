@@ -12,5 +12,8 @@ plugins {
 }
 
 rootProject.name = 'rinlib'
-include 'fabric'
-include 'neoforge'
+include 'portable'
+if (!providers.gradleProperty('portableOnly').isPresent()) {
+    include 'fabric'
+    include 'neoforge'
+}

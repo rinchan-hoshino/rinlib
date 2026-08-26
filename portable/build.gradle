@@ -1,0 +1,44 @@
+plugins {
+    id 'java-library'
+}
+
+base {
+    archivesName = 'rinlib-portable'
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 17
+}
+
+sourceSets.main.java {
+    srcDir rootProject.file('common/src/main/java')
+    include 'dev/rinchan/rinlib/RinLib.java'
+    include 'dev/rinchan/rinlib/payment/**'
+    include 'dev/rinchan/rinlib/state/**'
+    include 'dev/rinchan/rinlib/minecraft/KeepInventoryProjection.java'
+}
+sourceSets.test.java {
+    srcDir rootProject.file('common/src/test/java')
+    include 'dev/rinchan/rinlib/payment/**'
+    include 'dev/rinchan/rinlib/state/**'
+    include 'dev/rinchan/rinlib/minecraft/KeepInventoryProjectionTest.java'
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+}
+
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
