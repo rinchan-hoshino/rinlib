@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "bases": {
+    "1.21.1-fabric": {
+      "version": "0.2.0+1.21.1-fabric",
+      "url": "https://cdn.modrinth.com/data/PbP7tKqB/versions/iUySGbgL/rinlib-fabric-0.2.0%2B1.21.1.jar",
+      "sha512": "c502cbe8e8c3e71f467c9dc4dc5d27fc5cf8c3c6203a6f1f60516464be4aeceec4f89a8d10379e518e1065e8f5fbc696095a8f82594fe80d223726ad49f54316"
+    },
+    "1.21.1-neoforge": {
+      "version": "0.3.1+1.21.1-neoforge",
+      "url": "https://cdn.modrinth.com/data/PbP7tKqB/versions/Vd5Kpiby/rinlib-neoforge-0.3.1%2B1.21.1.jar",
+      "sha512": "5ca32d7971f535391ff6a75e779bbb55f91aeb6d9d8cf9326063f3c22f7bf28ef14e1ca688b92c342a229ee19853773f9e079fd3526bf061b33f582c4d4cd5d8"
+    },
+    "26.1.2-fabric": {
+      "version": "0.2.0+26.1.2-fabric",
+      "url": "https://cdn.modrinth.com/data/PbP7tKqB/versions/Oyn7dgvT/rinlib-fabric-0.2.0%2B26.1.2.jar",
+      "sha512": "f6e21f7b528b81fa9d511cdcac245c485cc531afd7cf394c5994d3a0794a837b85c832938b6bdb5f2acd73e8491addebd9be77a605464b511d1b549e2df824bf"
+    },
+    "26.1.2-neoforge": {
+      "version": "0.3.1+26.1.2-neoforge",
+      "url": "https://cdn.modrinth.com/data/PbP7tKqB/versions/cvba6ZUj/rinlib-neoforge-0.3.1%2B26.1.2.jar",
+      "sha512": "dea6878ac4ae4d2b05cf07265966a0b4bc64e60981c17ded44bc8b95e29c015cc1e391ff5ed30c656cadc2f7a1b8a508011529ca63179497730c59bbfff95294"
+    },
+    "26.2-fabric": {
+      "version": "0.2.0+26.2-fabric",
+      "url": "https://cdn.modrinth.com/data/PbP7tKqB/versions/RnND21nZ/rinlib-fabric-0.2.0%2B26.2.jar",
+      "sha512": "584a51de396aa4e6c9f56a9c9c20e5ef32bb7aa63f1aef2028782db313ccd539f70075f50042391facfca1a8230665ddfca3b635cd72628aeefe759ee59f3b57"
+    },
+    "26.2-neoforge": {
+      "version": "0.3.1+26.2-neoforge",
+      "url": "https://cdn.modrinth.com/data/PbP7tKqB/versions/n3UJzW3k/rinlib-neoforge-0.3.1%2B26.2.jar",
+      "sha512": "868ff1eec281f83313b281335b594ffd06902c69bb147b50318fed34827ef59ced26b62e89a79a399c3c9474d08465e19b081158f959e8b7cae505005dca8fad"
+    }
+  }
+}
