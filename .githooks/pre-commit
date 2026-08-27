@@ -11,6 +11,25 @@ fi
 
 image_tag="$(basename "$repo_root")-local-ci:latest"
 branch_name="$(git rev-parse --abbrev-ref HEAD)"
+host_uid="$(id -u)"
+host_gid="$(id -g)"
+gradle_user_home="${GRADLE_USER_HOME:-$HOME/.gradle}"
+
+if [[ "$host_uid" == "0" ]]; then
+  echo "minecraft mod local ci: refusing to run as root." >&2
+  exit 1
+fi
+
+if [[ ! -d "$gradle_user_home" || ! -w "$gradle_user_home" ]]; then
+  echo "minecraft mod local ci: Gradle home is missing or not writable: $gradle_user_home" >&2
+  exit 1
+fi
+
+foreign_path="$(find "$gradle_user_home" -xdev ! -uid "$host_uid" -print -quit)"
+if [[ -n "$foreign_path" ]]; then
+  echo "minecraft mod local ci: refusing mixed-ownership Gradle home: $foreign_path" >&2
+  exit 1
+fi
 
 echo "minecraft mod local ci: building container image..."
 docker build -f .ci/local-ci/Dockerfile --build-arg RINLIB_REF="$branch_name" -t "$image_tag" .
@@ -21,4 +40,10 @@ trap 'rm -f "$archive_file"' EXIT
 git archive --format=tar "$tree_id" >"$archive_file"
 
 echo "minecraft mod local ci: running checks in container..."
-docker run --rm -e RUN_SERVER_SMOKE="${RUN_SERVER_SMOKE:-1}" -e GRADLE_USER_HOME="$HOME/.gradle" -v "$HOME/.gradle:$HOME/.gradle" -i "$image_tag" <"$archive_file"
+docker run --rm \
+  --user "$host_uid:$host_gid" \
+  -e HOME="$HOME" \
+  -e RUN_SERVER_SMOKE="${RUN_SERVER_SMOKE:-1}" \
+  -e GRADLE_USER_HOME="$gradle_user_home" \
+  -v "$gradle_user_home:$gradle_user_home" \
+  -i "$image_tag" <"$archive_file"
