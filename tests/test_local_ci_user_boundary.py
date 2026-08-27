@@ -29,6 +29,14 @@ class LocalCiUserBoundaryTest(unittest.TestCase):
         self.assertIn('[[ "$host_uid" == "0" ]]', source)
         self.assertIn('refusing to run as root', source)
 
+    def test_shared_build_lock_is_bounded_and_precedes_docker(self):
+        source = HOOK.read_text(encoding="utf-8")
+
+        self.assertIn('RIN_GRADLE_LOCK_WAIT_SECONDS:-30', source)
+        self.assertIn('flock -w "$lock_wait" 9', source)
+        self.assertIn('holder=${holder:-unknown}', source)
+        self.assertLess(source.index('flock -w "$lock_wait" 9'), source.index("docker run --rm"))
+
     def test_installer_uses_the_git_common_directory(self):
         source = INSTALLER.read_text(encoding="utf-8")
 
