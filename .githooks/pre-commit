@@ -25,25 +25,6 @@ if [[ ! -d "$gradle_user_home" || ! -w "$gradle_user_home" ]]; then
   exit 1
 fi
 
-lock_wait="${RIN_GRADLE_LOCK_WAIT_SECONDS:-30}"
-if [[ ! "$lock_wait" =~ ^[0-9]+$ ]]; then
-  echo "minecraft mod local ci: RIN_GRADLE_LOCK_WAIT_SECONDS must be a nonnegative integer." >&2
-  exit 1
-fi
-lock_file="$gradle_user_home/.rin-build.lock"
-exec 9>>"$lock_file"
-if [[ "$(stat -c '%u' "$lock_file")" != "$host_uid" ]]; then
-  echo "minecraft mod local ci: build lock is not owned by UID $host_uid: $lock_file" >&2
-  exit 1
-fi
-if ! flock -w "$lock_wait" 9; then
-  holder="$(tr '\n' ' ' <"$lock_file" 2>/dev/null || true)"
-  echo "minecraft mod local ci: Gradle build lock busy after ${lock_wait}s; holder=${holder:-unknown}" >&2
-  exit 75
-fi
-printf 'pid=%s started=%s cwd=%q command=RinLib-pre-commit\n' \
-  "$$" "$(date --iso-8601=seconds)" "$repo_root" >"$lock_file"
-
 foreign_path="$(find "$gradle_user_home" -xdev ! -uid "$host_uid" -print -quit)"
 if [[ -n "$foreign_path" ]]; then
   echo "minecraft mod local ci: refusing mixed-ownership Gradle home: $foreign_path" >&2
