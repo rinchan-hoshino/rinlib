@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+- Make death-scoped `keepInventory` projection own the complete gamerule read, avoiding callback-cancellation ordering while preserving the world's stored rule.
+
 ## 1.0.0
 
 - Formalizes RinLib as the stable shared contract for RinChan mods.

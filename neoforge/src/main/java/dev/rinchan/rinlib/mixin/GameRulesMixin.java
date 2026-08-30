@@ -1,21 +1,21 @@
 package dev.rinchan.rinlib.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import dev.rinchan.rinlib.minecraft.KeepInventoryProjection;
 import net.minecraft.world.level.GameRules;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(GameRules.class)
 abstract class GameRulesMixin {
-    @Inject(method = "getBoolean", at = @At("HEAD"), cancellable = true)
-    private void rinlib$projectKeepInventory(
+    @WrapMethod(method = "getBoolean")
+    private boolean rinlib$projectKeepInventory(
             GameRules.Key<GameRules.BooleanValue> key,
-            CallbackInfoReturnable<Boolean> result
+            Operation<Boolean> original
     ) {
         if (key == GameRules.RULE_KEEPINVENTORY && KeepInventoryProjection.isActive()) {
-            result.setReturnValue(true);
+            return true;
         }
+        return original.call(key);
     }
 }
