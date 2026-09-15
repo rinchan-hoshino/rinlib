@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.2
+
+- Build all release profiles from one checkout and shared sources, without merging old release JARs.
+- Keep existing public APIs and separate only Minecraft and loader-specific adapters.
+- Plan payments in one pass and avoid overflow when inventory value exceeds `long`.
+- Correct snapshot version metadata for Fabric 22w24a.
+- Share Gradle test conventions and remove an unused Fabric API dependency from the library build.
+- Require real server readiness and clean shutdown in smoke checks; add in-server API assertions.
+
 ## 1.0.1
 
 - Make death-scoped `keepInventory` projection own the complete gamerule read, avoiding callback-cancellation ordering while preserving the world's stored rule.

@@ -22,14 +22,6 @@ public final class DenominatedPayment {
             return Optional.of(new Plan(List.of(), 0));
         }
 
-        long availableUnits = 0;
-        for (var stack : stacks) {
-            availableUnits += (long) stack.itemCount() * stack.unitValue();
-        }
-        if (availableUnits < requiredUnits) {
-            return Optional.empty();
-        }
-
         long remainingUnits = requiredUnits;
         var removals = new ArrayList<Removal>();
         for (var stack : stacks) {
@@ -47,7 +39,9 @@ public final class DenominatedPayment {
             remainingUnits -= (long) itemsRemoved * stack.unitValue();
         }
 
-        return Optional.of(new Plan(removals, Math.toIntExact(-remainingUnits)));
+        return remainingUnits > 0
+                ? Optional.empty()
+                : Optional.of(new Plan(removals, Math.toIntExact(-remainingUnits)));
     }
 
     public record Stack(int slot, int itemCount, int unitValue) {

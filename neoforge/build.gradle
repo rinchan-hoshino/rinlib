@@ -9,6 +9,8 @@ base {
 }
 
 sourceSets.main.java.srcDir rootProject.file('common/src/main/java')
+sourceSets.main.java.srcDir rootProject.file('adapters/shared')
+sourceSets.main.java.srcDir rootProject.file('adapters/1.21')
 sourceSets.test.java.srcDir rootProject.file('common/src/test/java')
 sourceSets.main.resources.srcDir tasks.register('generateModMetadata', ProcessResources) {
     def replaceProperties = [
@@ -50,15 +52,7 @@ neoForge {
 
 neoForge.ideSyncTask tasks.named('generateModMetadata')
 
-dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.2')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-}
 
-tasks.withType(Test).configureEach {
-    useJUnitPlatform()
-}
 
 publishing {
     publications {
@@ -68,3 +62,5 @@ publishing {
         }
     }
 }
+
+tasks.named('runServer') { standardInput = System.in }

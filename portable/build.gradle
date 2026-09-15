@@ -28,17 +28,4 @@ sourceSets.test.java {
     include 'dev/rinchan/rinlib/minecraft/KeepInventoryProjectionTest.java'
 }
 
-dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.2')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-}
-
-tasks.withType(Test).configureEach {
-    useJUnitPlatform()
-}
-
-tasks.withType(AbstractArchiveTask).configureEach {
-    preserveFileTimestamps = false
-    reproducibleFileOrder = true
-}
+tasks.named('jar') { archiveFileName = 'rinlib-portable.jar' }

@@ -1,25 +1,39 @@
 # RinLib
 
-RinLib is the shared runtime library for RinChan Minecraft mods.
+RinLib is the shared runtime library for RinChan Minecraft mods. Stable state and payment logic lives in one source set; small adapters handle differences in Minecraft and loader APIs.
 
-The library keeps stable cross-version contracts in one place so gameplay mods remain small and focused. Its portable APIs include scoped state helpers and the denomination-based payment planner used by Paid Waystones. Minecraft-specific profiles may additionally expose the state and effect bridges required by their dependent mods.
+## APIs
 
-## Portable payment planning
+- `SharedOwnerState` reads and writes one shared entry in a UUID-keyed map.
+- `StickyBoolean` keeps a boolean true once it becomes true.
+- `ReentrantFlag` and `KeepInventoryProjection` manage nested, thread-local scopes.
+- `DenominatedPayment` creates immutable payment and change plans from ordered inventory stacks.
+- `DamageState` checks and bounds item durability.
+- `MobEffectState` applies effects to server players on supported NeoForge profiles.
 
-`DenominatedPayment` converts ordered inventory-stack values into an immutable removal-and-change plan. It has no Minecraft or loader dependency and targets Java 17 bytecode.
+API availability follows each [version profile](docs/version-support.md).
 
-## Build
+## Build and test
 
-Run the focused portable tests:
+Use Java 21 for the default Minecraft 1.21.1 build:
 
-```bash
+```sh
+./gradlew build
 ./gradlew -PportableOnly :portable:test
+python3 -m unittest discover -s tests -p 'test_*.py'
 ```
 
-Assemble loader metadata profiles from a consumer-owned matrix:
+Build the supported release profiles from this checkout:
 
-```bash
-python3 tools/build_portable_profiles.py /path/to/profiles.json
+```sh
+python3 tools/build_portable_profiles.py
+python3 tools/build_portable_profiles.py --profile 1.21.1 --loader neoforge
+python3 tools/build_portable_profiles.py --resume
+python3 tests/verify_artifacts.py
 ```
 
-Public artifacts and their exact loader/game-version metadata are listed on [Modrinth](https://modrinth.com/mod/rinlib).
+Set `JAVA_8_HOME`, `JAVA_16_HOME`, `JAVA_17_HOME`, `JAVA_21_HOME`, and `JAVA_25_HOME` to the installed JDKs needed by the selected profiles. Build results, hashes and logs are written to `build/matrix`. Resume reuses artifacts only when the source fingerprint and artifact hashes match.
+
+For local dedicated-server checks, see [runtime testing](runtime-tests/README.md).
+
+[Downloads](https://modrinth.com/mod/rinlib) · [Issues](https://github.com/rinchan-hoshino/rinlib/issues)

@@ -1,0 +1,24 @@
+allprojects {
+    afterEvaluate { p ->
+        if (p.plugins.hasPlugin('fabric-loom') || p.plugins.hasPlugin('net.fabricmc.fabric-loom')) {
+            def base = new File(System.getProperty('probe.sources'))
+            p.dependencies.add(p.configurations.findByName('modImplementation') ? 'modImplementation' : 'implementation',
+                    "net.fabricmc.fabric-api:fabric-api:${System.getProperty('probe.fabricApi')}")
+            def probe = p.sourceSets.create('runtimeProbe') {
+                java.srcDirs new File(base, 'common/java'), new File(base, 'fabric/java'), new File(System.getProperty('probe.checks'))
+                resources.srcDir new File(base, 'fabric/resources')
+                compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+                runtimeClasspath += output + p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+            }
+            p.loom.mods {
+                rinlib { sourceSet(p.sourceSets.main) }
+                rinlib_probe { sourceSet(probe) }
+            }
+            p.tasks.named('runServer').configure { doFirst { workingDir = p.file(System.getProperty('probe.instance')) } }
+            p.loom.runs.server {
+                source(probe)
+                runDir(p.projectDir.toPath().relativize(p.file(System.getProperty('probe.instance')).toPath()).toString())
+            }
+        }
+    }
+}

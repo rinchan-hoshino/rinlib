@@ -1,0 +1,172 @@
+[
+  {
+    "minecraft": "1.21.1",
+    "loader": "neoforge"
+  },
+  {
+    "minecraft": "1.21.1",
+    "loader": "fabric",
+    "fabric_api": "0.116.12+1.21.1"
+  },
+  {
+    "minecraft": "26.2",
+    "loader": "neoforge"
+  },
+  {
+    "minecraft": "26.2",
+    "loader": "fabric",
+    "fabric_api": "0.158.0+26.2"
+  },
+  {
+    "minecraft": "26.1.2",
+    "loader": "neoforge"
+  },
+  {
+    "minecraft": "26.1.2",
+    "loader": "fabric",
+    "fabric_api": "0.148.2+26.1.2"
+  },
+  {
+    "minecraft": "1.21.11",
+    "loader": "fabric",
+    "fabric_api": "0.141.6+1.21.11"
+  },
+  {
+    "minecraft": "1.21.10",
+    "loader": "fabric",
+    "fabric_api": "0.138.4+1.21.10"
+  },
+  {
+    "minecraft": "1.21.9",
+    "loader": "fabric",
+    "fabric_api": "0.134.1+1.21.9"
+  },
+  {
+    "minecraft": "1.21.8",
+    "loader": "fabric",
+    "fabric_api": "0.136.1+1.21.8"
+  },
+  {
+    "minecraft": "1.21.7",
+    "loader": "fabric",
+    "fabric_api": "0.129.0+1.21.7"
+  },
+  {
+    "minecraft": "1.21.6",
+    "loader": "fabric",
+    "fabric_api": "0.128.2+1.21.6"
+  },
+  {
+    "minecraft": "1.21.5",
+    "loader": "fabric",
+    "fabric_api": "0.128.2+1.21.5"
+  },
+  {
+    "minecraft": "1.21.4",
+    "loader": "fabric",
+    "fabric_api": "0.119.4+1.21.4"
+  },
+  {
+    "minecraft": "1.21.3",
+    "loader": "fabric",
+    "fabric_api": "0.114.1+1.21.3"
+  },
+  {
+    "minecraft": "1.21",
+    "loader": "fabric",
+    "fabric_api": "0.102.0+1.21"
+  },
+  {
+    "minecraft": "1.20.6",
+    "loader": "fabric",
+    "fabric_api": "0.100.8+1.20.6"
+  },
+  {
+    "minecraft": "1.20.4",
+    "loader": "fabric",
+    "fabric_api": "0.97.3+1.20.4"
+  },
+  {
+    "minecraft": "26.1.1",
+    "loader": "fabric",
+    "fabric_api": "0.145.4+26.1.1"
+  },
+  {
+    "minecraft": "26.1",
+    "loader": "fabric",
+    "fabric_api": "0.145.1+26.1"
+  },
+  {
+    "minecraft": "22w24a",
+    "loader": "fabric",
+    "fabric_api": "0.58.0+1.19"
+  },
+  {
+    "minecraft": "1.20.1",
+    "loader": "fabric",
+    "fabric_api": "0.92.2+1.20.1"
+  },
+  {
+    "minecraft": "1.20",
+    "loader": "fabric",
+    "fabric_api": "0.83.0+1.20"
+  },
+  {
+    "minecraft": "1.19.4",
+    "loader": "fabric",
+    "fabric_api": "0.87.2+1.19.4"
+  },
+  {
+    "minecraft": "1.19.3",
+    "loader": "fabric",
+    "fabric_api": "0.76.1+1.19.3"
+  },
+  {
+    "minecraft": "1.19.2",
+    "loader": "fabric",
+    "fabric_api": "0.77.0+1.19.2"
+  },
+  {
+    "minecraft": "1.19.1",
+    "loader": "fabric",
+    "fabric_api": "0.58.5+1.19.1"
+  },
+  {
+    "minecraft": "1.19",
+    "loader": "fabric",
+    "fabric_api": "0.58.0+1.19"
+  },
+  {
+    "minecraft": "1.18.2",
+    "loader": "fabric",
+    "fabric_api": "0.77.0+1.18.2"
+  },
+  {
+    "minecraft": "1.18.1",
+    "loader": "fabric",
+    "fabric_api": "0.46.6+1.18"
+  },
+  {
+    "minecraft": "1.18",
+    "loader": "fabric",
+    "fabric_api": "0.44.0+1.18"
+  },
+  {
+    "minecraft": "1.17.1",
+    "loader": "forge"
+  },
+  {
+    "minecraft": "1.16.5",
+    "loader": "forge"
+  },
+  {
+    "minecraft": "1.12.2",
+    "loader": "forge"
+  },
+  {
+    "minecraft": "1.21.2",
+    "profile": "1.21.3",
+    "loader": "fabric",
+    "fabric_api": "0.106.1+1.21.2"
+  }
+]
