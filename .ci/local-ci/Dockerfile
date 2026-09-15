@@ -3,7 +3,7 @@ FROM eclipse-temurin:21-jdk-jammy
 WORKDIR /opt/mod
 
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends bash coreutils findutils ca-certificates \
+  && apt-get install -y --no-install-recommends bash coreutils findutils ca-certificates python3 \
   && rm -rf /var/lib/apt/lists/*
 
 COPY .ci/local-ci/run-checks.sh /usr/local/bin/minecraft-mod-local-ci-runner

@@ -1,0 +1,57 @@
+import groovy.json.JsonSlurper
+
+ext.rinlibRoot = rootProject.file('..')
+def config = new Properties()
+rinlibRoot.toPath().resolve('gradle.properties').toFile().withInputStream { config.load(it) }
+ext.target = new JsonSlurper().parse(new File(rinlibRoot, 'support/profiles.json')).profiles.find {
+    it.minecraft == project.property('profile') && it.loader == project.property('loader')
+}
+if (target == null || (target.kind == 'portable' && !project.hasProperty('runtimeTest'))) throw new GradleException('No Minecraft source profile matches')
+if (project.hasProperty('runtimeMinecraft')) {
+    def game = project.property('runtimeMinecraft')
+    if (!target.game_versions.contains(game)) throw new GradleException('Game is outside the supported profile')
+    target = new LinkedHashMap(target)
+    target.minecraft = game
+    target.game_versions = [game]
+}
+group = config.mod_group_id
+version = config.mod_version.split('\\+')[0] + '+' + target.minecraft
+buildDir = new File(rinlibRoot, "build/profiles/${target.minecraft}-${target.loader}")
+base { archivesName = "rinlib-${target.loader}" }
+java.toolchain.languageVersion = JavaLanguageVersion.of(target.java as int)
+repositories { mavenCentral() }
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+
+sourceSets.main.java {
+    setSrcDirs([new File(rinlibRoot, 'common/src/main/java')])
+    if (target.kind == 'portable') {
+        include 'dev/rinchan/rinlib/RinLib.java', 'dev/rinchan/rinlib/state/**',
+                'dev/rinchan/rinlib/payment/**', 'dev/rinchan/rinlib/minecraft/KeepInventoryProjection.java'
+    } else {
+        srcDir new File(rinlibRoot, target.minecraft == '1.16.5' ? 'adapters/1.16' : 'adapters/shared')
+        srcDir new File(rinlibRoot, target.loader == 'forge' ? 'adapters/forge' : "${target.loader}/src/main/java")
+        if (target.kind == 'state') {
+            include 'dev/rinchan/rinlib/RinLib.java', 'dev/rinchan/rinlib/state/SharedOwnerState.java',
+                    'dev/rinchan/rinlib/state/StickyBoolean.java', 'dev/rinchan/rinlib/item/DamageState.java',
+                    "dev/rinchan/rinlib/${target.loader}/**"
+        } else if (target.loader == 'neoforge') {
+            srcDir new File(rinlibRoot, target.minecraft.startsWith('26.') ? 'adapters/26' : 'adapters/1.21')
+        }
+    }
+}
+
+def generated = layout.buildDirectory.dir('generated/metadata')
+tasks.register('generateMetadata', Exec) {
+    inputs.file new File(rinlibRoot, 'support/profiles.json')
+    inputs.file new File(rinlibRoot, 'tools/build_portable_profiles.py')
+    inputs.property 'version', project.version
+    outputs.dir generated
+    commandLine 'python3', new File(rinlibRoot, 'tools/build_portable_profiles.py'),
+            '--metadata', project.property('profile'), target.loader, '--output', generated.get().asFile
+}
+sourceSets.main.resources.srcDir(tasks.named('generateMetadata'))
+jar { from(new File(rinlibRoot, 'LICENSE')) }

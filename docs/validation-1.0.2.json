@@ -1,0 +1,1074 @@
+{
+  "version": "1.0.2",
+  "source_fingerprint": "d5f8968e86208499287b919767a2f5b27c9e520c091e95174e2a6ebbd077ab26",
+  "build_count": 67,
+  "game_version_count": 32,
+  "runtime_count": 35,
+  "runtime_game_version_count": 32,
+  "unit_tests": {
+    "unique_java_tests": 15,
+    "java_runtimes": [
+      17,
+      21
+    ],
+    "generated_payment_examples": 2000,
+    "python_tests": 9
+  },
+  "scope": "Dedicated-server API tests. No connected-client or graphical acceptance tests.",
+  "artifacts": [
+    {
+      "minecraft": "1.21.1",
+      "loader": "neoforge",
+      "game_versions": [
+        "1.21.1"
+      ],
+      "artifact": "artifacts/1.21.1-neoforge/rinlib-neoforge-1.0.2+1.21.1.jar",
+      "sha256": "5486de77c31268e6eb8060f91b599111aa955cac1eca0f957ed731151d89d04e",
+      "baseline": "1.0.1+1.21.1-neoforge"
+    },
+    {
+      "minecraft": "1.21.1",
+      "loader": "fabric",
+      "game_versions": [
+        "1.21.1"
+      ],
+      "artifact": "artifacts/1.21.1-fabric/rinlib-fabric-1.0.2+1.21.1.jar",
+      "sha256": "155b3bbaa63c74c37b426c87d44d0b28e9d21e20d72204df5f16294e2c861304",
+      "baseline": "1.0.1+1.21.1-fabric"
+    },
+    {
+      "minecraft": "26.2",
+      "loader": "neoforge",
+      "game_versions": [
+        "26.2"
+      ],
+      "artifact": "artifacts/26.2-neoforge/rinlib-neoforge-1.0.2+26.2.jar",
+      "sha256": "4f8763c7f0b2ae285c9c25e78683960594889d0048a899fb48751ac8dbb6b29a",
+      "baseline": "1.0.0+26.2-neoforge"
+    },
+    {
+      "minecraft": "26.2",
+      "loader": "fabric",
+      "game_versions": [
+        "26.2"
+      ],
+      "artifact": "artifacts/26.2-fabric/rinlib-fabric-1.0.2+26.2.jar",
+      "sha256": "96ee265e4ad1da9620a42ccf599a9d1ac3322413f5514a9f9b7c34f9362245d8",
+      "baseline": "1.0.0+26.2-fabric"
+    },
+    {
+      "minecraft": "26.1.2",
+      "loader": "neoforge",
+      "game_versions": [
+        "26.1.2"
+      ],
+      "artifact": "artifacts/26.1.2-neoforge/rinlib-neoforge-1.0.2+26.1.2.jar",
+      "sha256": "63fc56426b7222de559f9bf2ad98972609d9fe35c09003cca9ec9ad302d0ac21",
+      "baseline": "1.0.0+26.1.2-neoforge"
+    },
+    {
+      "minecraft": "26.1.2",
+      "loader": "fabric",
+      "game_versions": [
+        "26.1.2"
+      ],
+      "artifact": "artifacts/26.1.2-fabric/rinlib-fabric-1.0.2+26.1.2.jar",
+      "sha256": "0260789d3d906e811ccf1743c4abc93d681aae6adcec85af4b6c9e575a8f4d73",
+      "baseline": "1.0.0+26.1.2-fabric"
+    },
+    {
+      "minecraft": "1.21.11",
+      "loader": "neoforge",
+      "game_versions": [
+        "1.21.11"
+      ],
+      "artifact": "artifacts/1.21.11-neoforge/rinlib-neoforge-1.0.2+1.21.11.jar",
+      "sha256": "81ad224cb132f66ade7505a481770ef28f5af1290adfc2828f72de215339e675",
+      "baseline": "1.0.0+1.21.11-neoforge"
+    },
+    {
+      "minecraft": "1.21.11",
+      "loader": "forge",
+      "game_versions": [
+        "1.21.11"
+      ],
+      "artifact": "artifacts/1.21.11-forge/rinlib-forge-1.0.2+1.21.11.jar",
+      "sha256": "c11cb46065a67f51d3059729087da43f127e3828f3c33b0629cecf0299c1df0d",
+      "baseline": "1.0.0+1.21.11-forge"
+    },
+    {
+      "minecraft": "1.21.11",
+      "loader": "fabric",
+      "game_versions": [
+        "1.21.11"
+      ],
+      "artifact": "artifacts/1.21.11-fabric/rinlib-fabric-1.0.2+1.21.11.jar",
+      "sha256": "6a93a6a773582093461953f38d60212dccacf89fedf66e103d55d08a9f2716bf",
+      "baseline": "1.0.0+1.21.11-fabric"
+    },
+    {
+      "minecraft": "1.21.10",
+      "loader": "neoforge",
+      "game_versions": [
+        "1.21.10"
+      ],
+      "artifact": "artifacts/1.21.10-neoforge/rinlib-neoforge-1.0.2+1.21.10.jar",
+      "sha256": "7b72fed94bbd0cee56a74a8e8c30cddacddd1a2824313a959616e34990ad7533",
+      "baseline": "1.0.0+1.21.10-neoforge"
+    },
+    {
+      "minecraft": "1.21.10",
+      "loader": "forge",
+      "game_versions": [
+        "1.21.10"
+      ],
+      "artifact": "artifacts/1.21.10-forge/rinlib-forge-1.0.2+1.21.10.jar",
+      "sha256": "c5e34d59f039c7cc548b0dc4c8e742162a923116a7e348d57a9a4bb5794b263c",
+      "baseline": "1.0.0+1.21.10-forge"
+    },
+    {
+      "minecraft": "1.21.10",
+      "loader": "fabric",
+      "game_versions": [
+        "1.21.10"
+      ],
+      "artifact": "artifacts/1.21.10-fabric/rinlib-fabric-1.0.2+1.21.10.jar",
+      "sha256": "f1eb358c4df788e01d154f1e13339dcce6987bcff930219ea0751b955966f5cb",
+      "baseline": "1.0.0+1.21.10-fabric"
+    },
+    {
+      "minecraft": "1.21.9",
+      "loader": "neoforge",
+      "game_versions": [
+        "1.21.9"
+      ],
+      "artifact": "artifacts/1.21.9-neoforge/rinlib-neoforge-1.0.2+1.21.9.jar",
+      "sha256": "af5e6a911b4d84bc8437303f6d500f76547cbfc93be60069d07ee3dc81e62312",
+      "baseline": "1.0.0+1.21.9-neoforge"
+    },
+    {
+      "minecraft": "1.21.9",
+      "loader": "fabric",
+      "game_versions": [
+        "1.21.9"
+      ],
+      "artifact": "artifacts/1.21.9-fabric/rinlib-fabric-1.0.2+1.21.9.jar",
+      "sha256": "98a1f641b0296438012fbc9e6bb9cf199280249608bd2db372584332eb926b62",
+      "baseline": "1.0.0+1.21.9-fabric"
+    },
+    {
+      "minecraft": "1.21.8",
+      "loader": "neoforge",
+      "game_versions": [
+        "1.21.8"
+      ],
+      "artifact": "artifacts/1.21.8-neoforge/rinlib-neoforge-1.0.2+1.21.8.jar",
+      "sha256": "a87a92128c1736a7fe412152a60586a5d720fc74f11a3a742ca78e46ccb216a3",
+      "baseline": "1.0.0+1.21.8-neoforge"
+    },
+    {
+      "minecraft": "1.21.8",
+      "loader": "forge",
+      "game_versions": [
+        "1.21.8"
+      ],
+      "artifact": "artifacts/1.21.8-forge/rinlib-forge-1.0.2+1.21.8.jar",
+      "sha256": "eaea419786f05df5fd455ea1f0b59a5d5bba51b5ade79e773787064696c1b255",
+      "baseline": "1.0.0+1.21.8-forge"
+    },
+    {
+      "minecraft": "1.21.8",
+      "loader": "fabric",
+      "game_versions": [
+        "1.21.8"
+      ],
+      "artifact": "artifacts/1.21.8-fabric/rinlib-fabric-1.0.2+1.21.8.jar",
+      "sha256": "bafbe97eed6e82237a3e57178dc9504002c5d3dbd525fb1191243550ca6cec80",
+      "baseline": "1.0.0+1.21.8-fabric"
+    },
+    {
+      "minecraft": "1.21.7",
+      "loader": "neoforge",
+      "game_versions": [
+        "1.21.7"
+      ],
+      "artifact": "artifacts/1.21.7-neoforge/rinlib-neoforge-1.0.2+1.21.7.jar",
+      "sha256": "44ce2eb40b82003028abb8be4c7ce79aa390c8f7e1409187fe2d7ae05295a0bf",
+      "baseline": "1.0.0+1.21.7-neoforge"
+    },
+    {
+      "minecraft": "1.21.7",
+      "loader": "forge",
+      "game_versions": [
+        "1.21.7"
+      ],
+      "artifact": "artifacts/1.21.7-forge/rinlib-forge-1.0.2+1.21.7.jar",
+      "sha256": "285b49c51593f30c1b6ddfbd0916c0a4e5e6b60799841e787f942bc2a08dcc3d",
+      "baseline": "1.0.0+1.21.7-forge"
+    },
+    {
+      "minecraft": "1.21.7",
+      "loader": "fabric",
+      "game_versions": [
+        "1.21.7"
+      ],
+      "artifact": "artifacts/1.21.7-fabric/rinlib-fabric-1.0.2+1.21.7.jar",
+      "sha256": "4b251e9bd112101423ca179f295cb768878f261e3fd29a02611bcfed4e95851b",
+      "baseline": "1.0.0+1.21.7-fabric"
+    },
+    {
+      "minecraft": "1.21.6",
+      "loader": "neoforge",
+      "game_versions": [
+        "1.21.6"
+      ],
+      "artifact": "artifacts/1.21.6-neoforge/rinlib-neoforge-1.0.2+1.21.6.jar",
+      "sha256": "5e019d524cc83e8fe8d0ee92998785b32eafe21f65017ac198b2dda9050918c5",
+      "baseline": "1.0.0+1.21.6-neoforge"
+    },
+    {
+      "minecraft": "1.21.6",
+      "loader": "forge",
+      "game_versions": [
+        "1.21.6"
+      ],
+      "artifact": "artifacts/1.21.6-forge/rinlib-forge-1.0.2+1.21.6.jar",
+      "sha256": "d5970668b8a20da4262d7eda66c0abde39bb081907698cd1759966a2f7531cd5",
+      "baseline": "1.0.0+1.21.6-forge"
+    },
+    {
+      "minecraft": "1.21.6",
+      "loader": "fabric",
+      "game_versions": [
+        "1.21.6"
+      ],
+      "artifact": "artifacts/1.21.6-fabric/rinlib-fabric-1.0.2+1.21.6.jar",
+      "sha256": "23cc08df27e56b3127a9c549282fba297650b0529e78a8d51846070f1aeec5ce",
+      "baseline": "1.0.0+1.21.6-fabric"
+    },
+    {
+      "minecraft": "1.21.5",
+      "loader": "neoforge",
+      "game_versions": [
+        "1.21.5"
+      ],
+      "artifact": "artifacts/1.21.5-neoforge/rinlib-neoforge-1.0.2+1.21.5.jar",
+      "sha256": "48bb73676b083ebf71a71045e4f693554a4daff59093b83348e7add21c8db184",
+      "baseline": "1.0.0+1.21.5-neoforge"
+    },
+    {
+      "minecraft": "1.21.5",
+      "loader": "forge",
+      "game_versions": [
+        "1.21.5"
+      ],
+      "artifact": "artifacts/1.21.5-forge/rinlib-forge-1.0.2+1.21.5.jar",
+      "sha256": "b59a30b225fc0f4b8de52c8c3d8ca7c80d744572b36cd4d989516bed00a37774",
+      "baseline": "1.0.0+1.21.5-forge"
+    },
+    {
+      "minecraft": "1.21.5",
+      "loader": "fabric",
+      "game_versions": [
+        "1.21.5"
+      ],
+      "artifact": "artifacts/1.21.5-fabric/rinlib-fabric-1.0.2+1.21.5.jar",
+      "sha256": "9e64ca7ed75cfba0fe6953cb58624635305ff977a9af4ebbe05761569405c2a7",
+      "baseline": "1.0.0+1.21.5-fabric"
+    },
+    {
+      "minecraft": "1.21.4",
+      "loader": "neoforge",
+      "game_versions": [
+        "1.21.4"
+      ],
+      "artifact": "artifacts/1.21.4-neoforge/rinlib-neoforge-1.0.2+1.21.4.jar",
+      "sha256": "b535ea1cfb962fa5e75f5d0d87601d7c39eb758bb7918386ee9ae289370cfdcd",
+      "baseline": "1.0.0+1.21.4-neoforge"
+    },
+    {
+      "minecraft": "1.21.4",
+      "loader": "forge",
+      "game_versions": [
+        "1.21.4"
+      ],
+      "artifact": "artifacts/1.21.4-forge/rinlib-forge-1.0.2+1.21.4.jar",
+      "sha256": "a06e53ee6fe98dfedeb7a4127ba44027626c95da52cf2f5d1592ef0b6a297d0b",
+      "baseline": "1.0.0+1.21.4-forge"
+    },
+    {
+      "minecraft": "1.21.4",
+      "loader": "fabric",
+      "game_versions": [
+        "1.21.4"
+      ],
+      "artifact": "artifacts/1.21.4-fabric/rinlib-fabric-1.0.2+1.21.4.jar",
+      "sha256": "fe4a12f7a1c057cc56c1969b7820b0ce7c88b25e3671d1f2886eaaf1728e6810",
+      "baseline": "1.0.0+1.21.4-fabric"
+    },
+    {
+      "minecraft": "1.21.3",
+      "loader": "neoforge",
+      "game_versions": [
+        "1.21.2",
+        "1.21.3"
+      ],
+      "artifact": "artifacts/1.21.3-neoforge/rinlib-neoforge-1.0.2+1.21.3.jar",
+      "sha256": "7237eca90fd8c517384916944b2053b5b5a2966c668fe10498c1a08c11367e74",
+      "baseline": "1.0.0+1.21.3-neoforge"
+    },
+    {
+      "minecraft": "1.21.3",
+      "loader": "fabric",
+      "game_versions": [
+        "1.21.2",
+        "1.21.3"
+      ],
+      "artifact": "artifacts/1.21.3-fabric/rinlib-fabric-1.0.2+1.21.3.jar",
+      "sha256": "b6199935a121565ec233a6f9fdb561837a87a2f16a3df3b4833f3f5e2ed4d634",
+      "baseline": "1.0.0+1.21.3-fabric"
+    },
+    {
+      "minecraft": "1.21.1",
+      "loader": "forge",
+      "game_versions": [
+        "1.21.1"
+      ],
+      "artifact": "artifacts/1.21.1-forge/rinlib-forge-1.0.2+1.21.1.jar",
+      "sha256": "7140b7cc3428ecbfd1d7cfded35c3f844c590de9299de6869185a543e31c3ea4",
+      "baseline": "1.0.0+1.21.1-forge"
+    },
+    {
+      "minecraft": "1.21",
+      "loader": "neoforge",
+      "game_versions": [
+        "1.21"
+      ],
+      "artifact": "artifacts/1.21-neoforge/rinlib-neoforge-1.0.2+1.21.jar",
+      "sha256": "9a0147e59e2fdbde9eb7f48fc3146ee2654d745e53b14973484cf22c9f3f5766",
+      "baseline": "1.0.0+1.21-neoforge"
+    },
+    {
+      "minecraft": "1.21",
+      "loader": "forge",
+      "game_versions": [
+        "1.21"
+      ],
+      "artifact": "artifacts/1.21-forge/rinlib-forge-1.0.2+1.21.jar",
+      "sha256": "7571f7d43d89499a0c2660a36294a6354b201de6c80ecbf1c322d2c39637d8e8",
+      "baseline": "1.0.0+1.21-forge"
+    },
+    {
+      "minecraft": "1.21",
+      "loader": "fabric",
+      "game_versions": [
+        "1.21"
+      ],
+      "artifact": "artifacts/1.21-fabric/rinlib-fabric-1.0.2+1.21.jar",
+      "sha256": "5f337c8c8b0df6a69946538fdd1d4395cfb890a9b1369cffcf162ccc30e813a6",
+      "baseline": "1.0.0+1.21-fabric"
+    },
+    {
+      "minecraft": "1.20.6",
+      "loader": "neoforge",
+      "game_versions": [
+        "1.20.6"
+      ],
+      "artifact": "artifacts/1.20.6-neoforge/rinlib-neoforge-1.0.2+1.20.6.jar",
+      "sha256": "f781b04d7f9177ce448f94bb18fd81dc276143513e5e1208c63030ce76d1bb29",
+      "baseline": "1.0.0+1.20.6-neoforge"
+    },
+    {
+      "minecraft": "1.20.6",
+      "loader": "forge",
+      "game_versions": [
+        "1.20.6"
+      ],
+      "artifact": "artifacts/1.20.6-forge/rinlib-forge-1.0.2+1.20.6.jar",
+      "sha256": "2aaae9a8efdde4e73f9054a45988590f5496e0d328a8a8a1cfc934f16fc908e4",
+      "baseline": "1.0.0+1.20.6-forge"
+    },
+    {
+      "minecraft": "1.20.6",
+      "loader": "fabric",
+      "game_versions": [
+        "1.20.6"
+      ],
+      "artifact": "artifacts/1.20.6-fabric/rinlib-fabric-1.0.2+1.20.6.jar",
+      "sha256": "94ecdfbc4880565e9d8ce67fcdfc3e8ff18d4efb73bf8ea33190275f350e827b",
+      "baseline": "1.0.0+1.20.6-fabric"
+    },
+    {
+      "minecraft": "1.20.4",
+      "loader": "neoforge",
+      "game_versions": [
+        "1.20.4"
+      ],
+      "artifact": "artifacts/1.20.4-neoforge/rinlib-neoforge-1.0.2+1.20.4.jar",
+      "sha256": "de4d8693bb3f4936fef118ad811e6a7b7057bbe0871cb9d8a2c2437f3cf75d49",
+      "baseline": "1.0.0+1.20.4-neoforge"
+    },
+    {
+      "minecraft": "1.20.4",
+      "loader": "forge",
+      "game_versions": [
+        "1.20.4"
+      ],
+      "artifact": "artifacts/1.20.4-forge/rinlib-forge-1.0.2+1.20.4.jar",
+      "sha256": "e19eb50f9f3a10a3b81d41d542a945b71025e884da96d3cba6abb0652641016f",
+      "baseline": "1.0.0+1.20.4-forge"
+    },
+    {
+      "minecraft": "1.20.4",
+      "loader": "fabric",
+      "game_versions": [
+        "1.20.4"
+      ],
+      "artifact": "artifacts/1.20.4-fabric/rinlib-fabric-1.0.2+1.20.4.jar",
+      "sha256": "93379bf8bbdb627c2e4595c808ff9c830290c2fa1097576af90cf8e940a1f949",
+      "baseline": "1.0.0+1.20.4-fabric"
+    },
+    {
+      "minecraft": "26.1.1",
+      "loader": "neoforge",
+      "game_versions": [
+        "26.1.1"
+      ],
+      "artifact": "artifacts/26.1.1-neoforge/rinlib-neoforge-1.0.2+26.1.1.jar",
+      "sha256": "738eba44bcccc004ac2362abaa20230b851cd73b48a7f07e88a7acce5a5907b2",
+      "baseline": "0.2.0+26.1.1-neoforge"
+    },
+    {
+      "minecraft": "26.1.1",
+      "loader": "fabric",
+      "game_versions": [
+        "26.1.1"
+      ],
+      "artifact": "artifacts/26.1.1-fabric/rinlib-fabric-1.0.2+26.1.1.jar",
+      "sha256": "3f5d6edcea53cd8bf66682520d9e838068b4f6e11c87f0c8ec99e11c2a25cc62",
+      "baseline": "0.2.0+26.1.1-fabric"
+    },
+    {
+      "minecraft": "26.1",
+      "loader": "neoforge",
+      "game_versions": [
+        "26.1"
+      ],
+      "artifact": "artifacts/26.1-neoforge/rinlib-neoforge-1.0.2+26.1.jar",
+      "sha256": "aad099dfd6bc75db63de52f0e621e20036f824fa3fafc45215b18000afa5506c",
+      "baseline": "0.2.0+26.1-neoforge"
+    },
+    {
+      "minecraft": "26.1",
+      "loader": "fabric",
+      "game_versions": [
+        "26.1"
+      ],
+      "artifact": "artifacts/26.1-fabric/rinlib-fabric-1.0.2+26.1.jar",
+      "sha256": "6a9596ef076b1040907a8d9d7c6b04bcef19c274beefc6ef0d678b5f497c140b",
+      "baseline": "0.2.0+26.1-fabric"
+    },
+    {
+      "minecraft": "22w24a",
+      "loader": "fabric",
+      "game_versions": [
+        "22w24a"
+      ],
+      "artifact": "artifacts/22w24a-fabric/rinlib-fabric-1.0.2+22w24a.jar",
+      "sha256": "58c8a1ff98ad0f6e42d6527b924cb540f74f4074bb93aafa2e066be2326d72c6",
+      "baseline": "0.2.0+22w24a-fabric"
+    },
+    {
+      "minecraft": "1.20.1",
+      "loader": "forge",
+      "game_versions": [
+        "1.20.1"
+      ],
+      "artifact": "artifacts/1.20.1-forge/rinlib-forge-1.0.2+1.20.1.jar",
+      "sha256": "64a9dba6bbffe1200831fccdeed391c9c6d502d36817150b65f751cbe5411713",
+      "baseline": "0.2.0+1.20.1-forge"
+    },
+    {
+      "minecraft": "1.20.1",
+      "loader": "fabric",
+      "game_versions": [
+        "1.20.1"
+      ],
+      "artifact": "artifacts/1.20.1-fabric/rinlib-fabric-1.0.2+1.20.1.jar",
+      "sha256": "8e65a1c450e537756660b9152cb38779573fcd61da3dda649ba7162b02248584",
+      "baseline": "0.2.0+1.20.1-fabric"
+    },
+    {
+      "minecraft": "1.20",
+      "loader": "forge",
+      "game_versions": [
+        "1.20"
+      ],
+      "artifact": "artifacts/1.20-forge/rinlib-forge-1.0.2+1.20.jar",
+      "sha256": "6d0b075cad65a08b221cc5733db6c3febaf9904dbb0f92c26e12109f223a5c05",
+      "baseline": "0.2.0+1.20-forge"
+    },
+    {
+      "minecraft": "1.20",
+      "loader": "fabric",
+      "game_versions": [
+        "1.20"
+      ],
+      "artifact": "artifacts/1.20-fabric/rinlib-fabric-1.0.2+1.20.jar",
+      "sha256": "f31ce3e35232d09aa1ae44c624cee68a6e4d2f0a7fd5e3661c1258ffdd598225",
+      "baseline": "0.2.0+1.20-fabric"
+    },
+    {
+      "minecraft": "1.19.4",
+      "loader": "fabric",
+      "game_versions": [
+        "1.19.4"
+      ],
+      "artifact": "artifacts/1.19.4-fabric/rinlib-fabric-1.0.2+1.19.4.jar",
+      "sha256": "0785d8a818244540885ad4c4e7a76b0269ffb2d52d818ca29c2156f413c4c9a9",
+      "baseline": "0.2.0+1.19.4-fabric"
+    },
+    {
+      "minecraft": "1.19.3",
+      "loader": "fabric",
+      "game_versions": [
+        "1.19.3"
+      ],
+      "artifact": "artifacts/1.19.3-fabric/rinlib-fabric-1.0.2+1.19.3.jar",
+      "sha256": "a18e6c84354da44c839abd7435136f7949a53d845a0d64c536877780df39dde5",
+      "baseline": "0.2.0+1.19.3-fabric"
+    },
+    {
+      "minecraft": "1.19.2",
+      "loader": "forge",
+      "game_versions": [
+        "1.19.2"
+      ],
+      "artifact": "artifacts/1.19.2-forge/rinlib-forge-1.0.2+1.19.2.jar",
+      "sha256": "1d1b0b6013e05ca9a17ea0b7841ca6bc94332c3942072f76ad0b19ba43c0f8ce",
+      "baseline": "0.2.0+1.19.2-forge"
+    },
+    {
+      "minecraft": "1.19.2",
+      "loader": "fabric",
+      "game_versions": [
+        "1.19.2"
+      ],
+      "artifact": "artifacts/1.19.2-fabric/rinlib-fabric-1.0.2+1.19.2.jar",
+      "sha256": "f869ef9ace3d562adbe85bc0c10f92a79b4f510c399879a3205910ec331e5f47",
+      "baseline": "0.2.0+1.19.2-fabric"
+    },
+    {
+      "minecraft": "1.19.1",
+      "loader": "forge",
+      "game_versions": [
+        "1.19.1"
+      ],
+      "artifact": "artifacts/1.19.1-forge/rinlib-forge-1.0.2+1.19.1.jar",
+      "sha256": "85635da7ec1bfc62f3114d44f11ef894ffd24f5bc4d02824e39b914daf414471",
+      "baseline": "0.2.0+1.19.1-forge"
+    },
+    {
+      "minecraft": "1.19.1",
+      "loader": "fabric",
+      "game_versions": [
+        "1.19.1"
+      ],
+      "artifact": "artifacts/1.19.1-fabric/rinlib-fabric-1.0.2+1.19.1.jar",
+      "sha256": "13eaef5bef88b861f187d25efd38f17717ba3b529b3c1867a252c1c2a53e0bec",
+      "baseline": "0.2.0+1.19.1-fabric"
+    },
+    {
+      "minecraft": "1.19",
+      "loader": "forge",
+      "game_versions": [
+        "1.19"
+      ],
+      "artifact": "artifacts/1.19-forge/rinlib-forge-1.0.2+1.19.jar",
+      "sha256": "0b5413fb006487416f7ccd9aeb6898226f97540b1c44337450c4a1bc1d0fa393",
+      "baseline": "0.2.0+1.19-forge"
+    },
+    {
+      "minecraft": "1.19",
+      "loader": "fabric",
+      "game_versions": [
+        "1.19"
+      ],
+      "artifact": "artifacts/1.19-fabric/rinlib-fabric-1.0.2+1.19.jar",
+      "sha256": "db488117bf264a7e7dae62db5581937c80d6a7f420c2c072c0452d99221d028f",
+      "baseline": "0.2.0+1.19-fabric"
+    },
+    {
+      "minecraft": "1.18.2",
+      "loader": "forge",
+      "game_versions": [
+        "1.18.2"
+      ],
+      "artifact": "artifacts/1.18.2-forge/rinlib-forge-1.0.2+1.18.2.jar",
+      "sha256": "039aba6dede01ff8823dc14e8dd22e9869e08c29dc101f042c00dbac1e482d63",
+      "baseline": "0.2.0+1.18.2-forge"
+    },
+    {
+      "minecraft": "1.18.2",
+      "loader": "fabric",
+      "game_versions": [
+        "1.18.2"
+      ],
+      "artifact": "artifacts/1.18.2-fabric/rinlib-fabric-1.0.2+1.18.2.jar",
+      "sha256": "9032cf8d5a081f09ab6621a74dc593faa31f0dba24784708543183f7197e938a",
+      "baseline": "0.2.0+1.18.2-fabric"
+    },
+    {
+      "minecraft": "1.18.1",
+      "loader": "forge",
+      "game_versions": [
+        "1.18.1"
+      ],
+      "artifact": "artifacts/1.18.1-forge/rinlib-forge-1.0.2+1.18.1.jar",
+      "sha256": "5eff5ea1944b1a7bafdd42140dbe94bd69ca733cd67bf9267589d9677f1cb1cf",
+      "baseline": "0.2.0+1.18.1-forge"
+    },
+    {
+      "minecraft": "1.18.1",
+      "loader": "fabric",
+      "game_versions": [
+        "1.18.1"
+      ],
+      "artifact": "artifacts/1.18.1-fabric/rinlib-fabric-1.0.2+1.18.1.jar",
+      "sha256": "196bd1861cc9851a1410ec82b7014d8c1d2f32dc81374e0a1979852b396318ca",
+      "baseline": "0.2.0+1.18.1-fabric"
+    },
+    {
+      "minecraft": "1.18",
+      "loader": "forge",
+      "game_versions": [
+        "1.18"
+      ],
+      "artifact": "artifacts/1.18-forge/rinlib-forge-1.0.2+1.18.jar",
+      "sha256": "dd1f890ca28531ddcf2fe4745e8bcd51d126399ce18ba0f33662c1309b3b7a24",
+      "baseline": "0.2.0+1.18-forge"
+    },
+    {
+      "minecraft": "1.18",
+      "loader": "fabric",
+      "game_versions": [
+        "1.18"
+      ],
+      "artifact": "artifacts/1.18-fabric/rinlib-fabric-1.0.2+1.18.jar",
+      "sha256": "afb07561651eb5aa43388a8d285136854815769f8fa4b47a6636140b03a28d65",
+      "baseline": "0.2.0+1.18-fabric"
+    },
+    {
+      "minecraft": "1.17.1",
+      "loader": "forge",
+      "game_versions": [
+        "1.17.1"
+      ],
+      "artifact": "artifacts/1.17.1-forge/rinlib-forge-1.0.2+1.17.1.jar",
+      "sha256": "6211274f8b7817842ff6c18ac0ef8666462aa466ce1f4e6564171467646befcb",
+      "baseline": "0.2.0+1.17.1-forge"
+    },
+    {
+      "minecraft": "1.16.5",
+      "loader": "forge",
+      "game_versions": [
+        "1.16.5"
+      ],
+      "artifact": "artifacts/1.16.5-forge/rinlib-forge-1.0.2+1.16.5.jar",
+      "sha256": "727929dfb460e3f6ac4f5e062ad063e0d371c4a029da712fc72288b0fd95d94a",
+      "baseline": "0.2.0+1.16.5-forge"
+    },
+    {
+      "minecraft": "1.12.2",
+      "loader": "forge",
+      "game_versions": [
+        "1.12.2"
+      ],
+      "artifact": "artifacts/1.12.2-forge/rinlib-forge-1.0.2+1.12.2.jar",
+      "sha256": "1b5aad4135fdee08d3b6234d7c458e0928bd181b17b5b79de032ca0197256f34",
+      "baseline": "0.2.0+1.12.2-forge"
+    }
+  ],
+  "runtime": [
+    {
+      "minecraft": "1.21.1",
+      "loader": "neoforge",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 24,
+      "log": "runtime/1.21.1-neoforge/run.log",
+      "log_sha256": "7c5aafd1d1c63c871ec06a34b40298d5f527a05044626708e4f9b1291b8ac21b",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.21.1",
+      "loader": "fabric",
+      "fabric_api": "0.116.12+1.21.1",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 15,
+      "log": "runtime/1.21.1-fabric/run.log",
+      "log_sha256": "9fe15e0e4fcb9d39d9d3742ec38ce24108398e414aadafb86f86bad5bb9a3b74",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "26.2",
+      "loader": "neoforge",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 24,
+      "log": "runtime/26.2-neoforge/run.log",
+      "log_sha256": "65a58e1ec41fd6a33ed7f3d28286e9c5a71d1f0e281f31bf5273239d9d60755d",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "26.2",
+      "loader": "fabric",
+      "fabric_api": "0.158.0+26.2",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 15,
+      "log": "runtime/26.2-fabric/run.log",
+      "log_sha256": "50f44cc38cfb700d999d31f2c827ce41c183a13e92751b640a13d926aface039",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "26.1.2",
+      "loader": "neoforge",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 24,
+      "log": "runtime/26.1.2-neoforge/run.log",
+      "log_sha256": "febf8151f2a33a16d7ba37ef142b25e85f94b8452c6861e96621c8a3081c5ad7",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "26.1.2",
+      "loader": "fabric",
+      "fabric_api": "0.148.2+26.1.2",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 15,
+      "log": "runtime/26.1.2-fabric/run.log",
+      "log_sha256": "a0dfbe6476c68cc3e3bd6cf29c021fb7ebe293d03619ef6faa195ab8eb35cb7a",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.21.11",
+      "loader": "fabric",
+      "fabric_api": "0.141.6+1.21.11",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 10,
+      "log": "runtime/1.21.11-fabric/run.log",
+      "log_sha256": "45ce5252dc0c25fa73e04cb0c40287a5f913334fce53210dd60f4fc8270125ed",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.21.10",
+      "loader": "fabric",
+      "fabric_api": "0.138.4+1.21.10",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 10,
+      "log": "runtime/1.21.10-fabric/run.log",
+      "log_sha256": "6ca0204ba52b81669c9ffd582f7c1cda4443f42c49b931b022f49358bf6fe8e1",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.21.9",
+      "loader": "fabric",
+      "fabric_api": "0.134.1+1.21.9",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 10,
+      "log": "runtime/1.21.9-fabric/run.log",
+      "log_sha256": "5fd4853045e749d21b4f113954f9b90b0c5d12b334be66f84aa5a25d3a856b5b",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.21.8",
+      "loader": "fabric",
+      "fabric_api": "0.136.1+1.21.8",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 10,
+      "log": "runtime/1.21.8-fabric/run.log",
+      "log_sha256": "beff371be1e5c00051084fba929112aecbf50d8fdbbd5c04477e0e59d61025d8",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.21.7",
+      "loader": "fabric",
+      "fabric_api": "0.129.0+1.21.7",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 10,
+      "log": "runtime/1.21.7-fabric/run.log",
+      "log_sha256": "ad14ce333b6cb8f5f6ac35a97483a47583bc86028294184c447f8a31ec5d414f",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.21.6",
+      "loader": "fabric",
+      "fabric_api": "0.128.2+1.21.6",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 10,
+      "log": "runtime/1.21.6-fabric/run.log",
+      "log_sha256": "499a0ccceab73a861580d0a571acd1b572b02ede9c9b4b575316f5de5d4136a0",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.21.5",
+      "loader": "fabric",
+      "fabric_api": "0.128.2+1.21.5",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 10,
+      "log": "runtime/1.21.5-fabric/run.log",
+      "log_sha256": "3eac3bf1a2be04aee591f831877db95d30cc8f1da4a9de8fad0e8140f5becfc4",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.21.4",
+      "loader": "fabric",
+      "fabric_api": "0.119.4+1.21.4",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 10,
+      "log": "runtime/1.21.4-fabric/run.log",
+      "log_sha256": "d7f4ee952edc6b8bff93c940a8a2b2afe6969ba0631860c955eacb4d7e6c593f",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.21.3",
+      "loader": "fabric",
+      "fabric_api": "0.114.1+1.21.3",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 10,
+      "log": "runtime/1.21.3-fabric/run.log",
+      "log_sha256": "be0c4ea2922477b6634afee07d9c6aae7e4dd3b31586271eea16482a1c9b67fe",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.21",
+      "loader": "fabric",
+      "fabric_api": "0.102.0+1.21",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 10,
+      "log": "runtime/1.21-fabric/run.log",
+      "log_sha256": "138a73e35a31805c2c644cd237bbf24cbd171ca3a636a520bd25531a4ca84f38",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.20.6",
+      "loader": "fabric",
+      "fabric_api": "0.100.8+1.20.6",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 10,
+      "log": "runtime/1.20.6-fabric/run.log",
+      "log_sha256": "3288dbda396ac4f54bc6b58c96b454a5a10c0d379bfd9348c7d278c630823ce6",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.20.4",
+      "loader": "fabric",
+      "fabric_api": "0.97.3+1.20.4",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 10,
+      "log": "runtime/1.20.4-fabric/run.log",
+      "log_sha256": "c141a160e0f5809ee38aa42d5c582684412e8066943c30bdcbb20a2e1b4d5b85",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "26.1.1",
+      "loader": "fabric",
+      "fabric_api": "0.145.4+26.1.1",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 11,
+      "log": "runtime/26.1.1-fabric/run.log",
+      "log_sha256": "057fb55b277c909dde216c968836efaa082f0e6193ea15225986b83a71f604a5",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "26.1",
+      "loader": "fabric",
+      "fabric_api": "0.145.1+26.1",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 11,
+      "log": "runtime/26.1-fabric/run.log",
+      "log_sha256": "c0d34146e48078bc0a7f57a5ee7931a4382c33cef096ce7bb98fef11a7a1dead",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "22w24a",
+      "loader": "fabric",
+      "fabric_api": "0.58.0+1.19",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 11,
+      "log": "runtime/22w24a-fabric/run.log",
+      "log_sha256": "fbbffc925ff0436c45fa5e5402b98178f8b0b3ca94545352e8a0862f0827e9fa",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.20.1",
+      "loader": "fabric",
+      "fabric_api": "0.92.2+1.20.1",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 11,
+      "log": "runtime/1.20.1-fabric/run.log",
+      "log_sha256": "c61c6606645cdd88409627ee26b6d093a12d09a992df975b0e07871659e48a46",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.20",
+      "loader": "fabric",
+      "fabric_api": "0.83.0+1.20",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 11,
+      "log": "runtime/1.20-fabric/run.log",
+      "log_sha256": "f894581fc122b5aa5de647172abb0f53b95c45688718e3f461f3363a68e20404",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.19.4",
+      "loader": "fabric",
+      "fabric_api": "0.87.2+1.19.4",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 11,
+      "log": "runtime/1.19.4-fabric/run.log",
+      "log_sha256": "db57f697e854eb55fb6032662f5c369223a63ccfd7e3ca23fd359c9ed0df8fad",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.19.3",
+      "loader": "fabric",
+      "fabric_api": "0.76.1+1.19.3",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 11,
+      "log": "runtime/1.19.3-fabric/run.log",
+      "log_sha256": "6ceaf8ac338472f9f08b4a4cd4763f518f6089763b2d761c4806dcd6ab21e0b3",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.19.2",
+      "loader": "fabric",
+      "fabric_api": "0.77.0+1.19.2",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 11,
+      "log": "runtime/1.19.2-fabric/run.log",
+      "log_sha256": "f0b728d2877df1d965a8466aa94b78fc52c8fd9b4b71afb7b8838a4b8e253dab",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.19.1",
+      "loader": "fabric",
+      "fabric_api": "0.58.5+1.19.1",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 11,
+      "log": "runtime/1.19.1-fabric/run.log",
+      "log_sha256": "fb613818f4c5e81dc964664ba3b61a92bc4e5bea7cb51b0e95975e98b00af5be",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.19",
+      "loader": "fabric",
+      "fabric_api": "0.58.0+1.19",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 11,
+      "log": "runtime/1.19-fabric/run.log",
+      "log_sha256": "b32ce289008b0d51c7d2a2d4c19ae94c4bc8375e7e7f41fd0536d3a4d86c7e0e",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.18.2",
+      "loader": "fabric",
+      "fabric_api": "0.77.0+1.18.2",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 11,
+      "log": "runtime/1.18.2-fabric/run.log",
+      "log_sha256": "d53f7644e1019b77cbd636cfcb8a4025f047595e223fceb0a12d4cd510853725",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.18.1",
+      "loader": "fabric",
+      "fabric_api": "0.46.6+1.18",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 11,
+      "log": "runtime/1.18.1-fabric/run.log",
+      "log_sha256": "ac88511ce2e8138bfda91e5b35b8fd95a1e2cf4b5992537615e41aee19fc2ce7",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.18",
+      "loader": "fabric",
+      "fabric_api": "0.44.0+1.18",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 11,
+      "log": "runtime/1.18-fabric/run.log",
+      "log_sha256": "9c661d72b6d3143cdf4ab44ee1b02337d07081658e92bcc0699389918ed43dfb",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.17.1",
+      "loader": "forge",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 11,
+      "log": "runtime/1.17.1-forge/run.log",
+      "log_sha256": "63ec469df321c12db5151a8999b6f5576242213379ddb9bfcacb5df49c30da4c",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.16.5",
+      "loader": "forge",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 11,
+      "log": "runtime/1.16.5-forge/run.log",
+      "log_sha256": "c3d00cc6a0f128eb31f31ee4b7e67911a3bec4e4ca1d65c264df5fd988c5b34f",
+      "scope": "development dedicated server"
+    },
+    {
+      "minecraft": "1.12.2",
+      "loader": "forge",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 6,
+      "log": "runtime/1.12.2-forge/run.log",
+      "log_sha256": "16d76064a34314697d3c523dd4f97d31acd9e97a6cb9877e7e4fed6f9df5282b",
+      "scope": "standalone production JAR"
+    },
+    {
+      "minecraft": "1.21.2",
+      "profile": "1.21.3",
+      "loader": "fabric",
+      "fabric_api": "0.106.1+1.21.2",
+      "passed": true,
+      "exit_code": 0,
+      "assertions": 10,
+      "log": "runtime/1.21.2-fabric/run.log",
+      "log_sha256": "5ce3c1de0047dbeb9d1a2babf536de92e1ac648e1529fa783041800d62445fe6",
+      "scope": "development dedicated server"
+    }
+  ]
+}

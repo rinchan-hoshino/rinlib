@@ -1,0 +1,22 @@
+allprojects {
+    afterEvaluate { p ->
+        if (p.plugins.hasPlugin('net.minecraftforge.gradle')) {
+            def base = new File(System.getProperty('probe.sources'))
+            def probe = p.sourceSets.create('runtimeProbe') {
+                java.srcDirs new File(base, 'common/java'), new File(base,
+                        p.target.minecraft == '1.17.1' ? 'forge-1.17/java' : 'forge/java'), new File(System.getProperty('probe.checks'))
+                resources.srcDir new File(base, 'forge/resources')
+                compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
+                runtimeClasspath += output + p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
+            }
+            p.minecraft.runs.create('server') {
+                workingDirectory p.file(System.getProperty('probe.instance'))
+                args '--nogui'
+                mods {
+                    rinlib { source p.sourceSets.main }
+                    rinlib_probe { source probe }
+                }
+            }
+        }
+    }
+}

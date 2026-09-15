@@ -48,6 +48,18 @@ class DenominatedPaymentTest {
     }
 
     @Test
+    void paymentDoesNotOverflowWhenInventoryValueExceedsLong() {
+        var plan = DenominatedPayment.plan(1, List.of(
+            new DenominatedPayment.Stack(0, Integer.MAX_VALUE, Integer.MAX_VALUE),
+            new DenominatedPayment.Stack(1, Integer.MAX_VALUE, Integer.MAX_VALUE),
+            new DenominatedPayment.Stack(2, Integer.MAX_VALUE, Integer.MAX_VALUE)
+        )).orElseThrow();
+
+        assertEquals(List.of(new DenominatedPayment.Removal(0, 1)), plan.removals());
+        assertEquals(Integer.MAX_VALUE - 1, plan.changeUnits());
+    }
+
+    @Test
     void totalValueCalculationDoesNotOverflowInt() {
         var plan = DenominatedPayment.plan(Integer.MAX_VALUE, List.of(
             new DenominatedPayment.Stack(0, Integer.MAX_VALUE, 9)

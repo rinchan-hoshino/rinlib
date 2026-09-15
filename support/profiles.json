@@ -1,0 +1,830 @@
+{
+  "schema": 1,
+  "profiles": [
+    {
+      "minecraft": "1.21.1",
+      "game_versions": [
+        "1.21.1"
+      ],
+      "loader": "neoforge",
+      "java": 21,
+      "kind": "full",
+      "baseline_version": "1.0.1+1.21.1-neoforge",
+      "baseline_id": "3bDGrj4z",
+      "neo_version": "21.1.228",
+      "fabric_loader_version": "0.19.2"
+    },
+    {
+      "minecraft": "1.21.1",
+      "game_versions": [
+        "1.21.1"
+      ],
+      "loader": "fabric",
+      "java": 21,
+      "kind": "full",
+      "baseline_version": "1.0.1+1.21.1-fabric",
+      "baseline_id": "LnWRqVKF",
+      "neo_version": "21.1.228",
+      "fabric_loader_version": "0.19.2"
+    },
+    {
+      "minecraft": "26.2",
+      "game_versions": [
+        "26.2"
+      ],
+      "loader": "neoforge",
+      "java": 25,
+      "kind": "full",
+      "baseline_version": "1.0.0+26.2-neoforge",
+      "baseline_id": "l9GO4lKV",
+      "neo_version": "26.2.0.1-beta",
+      "fabric_loader_version": "0.19.2"
+    },
+    {
+      "minecraft": "26.2",
+      "game_versions": [
+        "26.2"
+      ],
+      "loader": "fabric",
+      "java": 25,
+      "kind": "full",
+      "baseline_version": "1.0.0+26.2-fabric",
+      "baseline_id": "VE0O8HmD",
+      "neo_version": "26.2.0.1-beta",
+      "fabric_loader_version": "0.19.2"
+    },
+    {
+      "minecraft": "26.1.2",
+      "game_versions": [
+        "26.1.2"
+      ],
+      "loader": "neoforge",
+      "java": 25,
+      "kind": "full",
+      "baseline_version": "1.0.0+26.1.2-neoforge",
+      "baseline_id": "ChYbzC7E",
+      "neo_version": "26.1.2.48-beta",
+      "fabric_loader_version": "0.19.2"
+    },
+    {
+      "minecraft": "26.1.2",
+      "game_versions": [
+        "26.1.2"
+      ],
+      "loader": "fabric",
+      "java": 25,
+      "kind": "full",
+      "baseline_version": "1.0.0+26.1.2-fabric",
+      "baseline_id": "lCue7Euf",
+      "neo_version": "26.1.2.48-beta",
+      "fabric_loader_version": "0.19.2"
+    },
+    {
+      "minecraft": "1.21.11",
+      "game_versions": [
+        "1.21.11"
+      ],
+      "loader": "neoforge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.11-neoforge",
+      "baseline_id": "VPW7C0uI"
+    },
+    {
+      "minecraft": "1.21.11",
+      "game_versions": [
+        "1.21.11"
+      ],
+      "loader": "forge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.11-forge",
+      "baseline_id": "Wc6ryIeT"
+    },
+    {
+      "minecraft": "1.21.11",
+      "game_versions": [
+        "1.21.11"
+      ],
+      "loader": "fabric",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.11-fabric",
+      "baseline_id": "OfYGUYwP"
+    },
+    {
+      "minecraft": "1.21.10",
+      "game_versions": [
+        "1.21.10"
+      ],
+      "loader": "neoforge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.10-neoforge",
+      "baseline_id": "yYCCSfPZ"
+    },
+    {
+      "minecraft": "1.21.10",
+      "game_versions": [
+        "1.21.10"
+      ],
+      "loader": "forge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.10-forge",
+      "baseline_id": "8KeIrxCi"
+    },
+    {
+      "minecraft": "1.21.10",
+      "game_versions": [
+        "1.21.10"
+      ],
+      "loader": "fabric",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.10-fabric",
+      "baseline_id": "AiRGj4Mh"
+    },
+    {
+      "minecraft": "1.21.9",
+      "game_versions": [
+        "1.21.9"
+      ],
+      "loader": "neoforge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.9-neoforge",
+      "baseline_id": "tEdjgHEo"
+    },
+    {
+      "minecraft": "1.21.9",
+      "game_versions": [
+        "1.21.9"
+      ],
+      "loader": "fabric",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.9-fabric",
+      "baseline_id": "F8KI5GV0"
+    },
+    {
+      "minecraft": "1.21.8",
+      "game_versions": [
+        "1.21.8"
+      ],
+      "loader": "neoforge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.8-neoforge",
+      "baseline_id": "LOg4y8oV"
+    },
+    {
+      "minecraft": "1.21.8",
+      "game_versions": [
+        "1.21.8"
+      ],
+      "loader": "forge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.8-forge",
+      "baseline_id": "LsljgOqE"
+    },
+    {
+      "minecraft": "1.21.8",
+      "game_versions": [
+        "1.21.8"
+      ],
+      "loader": "fabric",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.8-fabric",
+      "baseline_id": "1pPkslFq"
+    },
+    {
+      "minecraft": "1.21.7",
+      "game_versions": [
+        "1.21.7"
+      ],
+      "loader": "neoforge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.7-neoforge",
+      "baseline_id": "lXmJ279I"
+    },
+    {
+      "minecraft": "1.21.7",
+      "game_versions": [
+        "1.21.7"
+      ],
+      "loader": "forge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.7-forge",
+      "baseline_id": "R7AsoZn5"
+    },
+    {
+      "minecraft": "1.21.7",
+      "game_versions": [
+        "1.21.7"
+      ],
+      "loader": "fabric",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.7-fabric",
+      "baseline_id": "r3SpeZCW"
+    },
+    {
+      "minecraft": "1.21.6",
+      "game_versions": [
+        "1.21.6"
+      ],
+      "loader": "neoforge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.6-neoforge",
+      "baseline_id": "C3WROsPT"
+    },
+    {
+      "minecraft": "1.21.6",
+      "game_versions": [
+        "1.21.6"
+      ],
+      "loader": "forge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.6-forge",
+      "baseline_id": "PIpqAs4Y"
+    },
+    {
+      "minecraft": "1.21.6",
+      "game_versions": [
+        "1.21.6"
+      ],
+      "loader": "fabric",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.6-fabric",
+      "baseline_id": "eD5mGMX9"
+    },
+    {
+      "minecraft": "1.21.5",
+      "game_versions": [
+        "1.21.5"
+      ],
+      "loader": "neoforge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.5-neoforge",
+      "baseline_id": "YbL28PFQ"
+    },
+    {
+      "minecraft": "1.21.5",
+      "game_versions": [
+        "1.21.5"
+      ],
+      "loader": "forge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.5-forge",
+      "baseline_id": "tvUWHi05"
+    },
+    {
+      "minecraft": "1.21.5",
+      "game_versions": [
+        "1.21.5"
+      ],
+      "loader": "fabric",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.5-fabric",
+      "baseline_id": "oWHyrp9s"
+    },
+    {
+      "minecraft": "1.21.4",
+      "game_versions": [
+        "1.21.4"
+      ],
+      "loader": "neoforge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.4-neoforge",
+      "baseline_id": "zEZvXzu5"
+    },
+    {
+      "minecraft": "1.21.4",
+      "game_versions": [
+        "1.21.4"
+      ],
+      "loader": "forge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.4-forge",
+      "baseline_id": "jszqW5Md"
+    },
+    {
+      "minecraft": "1.21.4",
+      "game_versions": [
+        "1.21.4"
+      ],
+      "loader": "fabric",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.4-fabric",
+      "baseline_id": "HdIJZSH0"
+    },
+    {
+      "minecraft": "1.21.3",
+      "game_versions": [
+        "1.21.2",
+        "1.21.3"
+      ],
+      "loader": "neoforge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.3-neoforge",
+      "baseline_id": "isrkYvTo"
+    },
+    {
+      "minecraft": "1.21.3",
+      "game_versions": [
+        "1.21.2",
+        "1.21.3"
+      ],
+      "loader": "fabric",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.3-fabric",
+      "baseline_id": "IaKWg3uk"
+    },
+    {
+      "minecraft": "1.21.1",
+      "game_versions": [
+        "1.21.1"
+      ],
+      "loader": "forge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21.1-forge",
+      "baseline_id": "SiliWsEe"
+    },
+    {
+      "minecraft": "1.21",
+      "game_versions": [
+        "1.21"
+      ],
+      "loader": "neoforge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21-neoforge",
+      "baseline_id": "auXZRwDE"
+    },
+    {
+      "minecraft": "1.21",
+      "game_versions": [
+        "1.21"
+      ],
+      "loader": "forge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21-forge",
+      "baseline_id": "4jBwUyRs"
+    },
+    {
+      "minecraft": "1.21",
+      "game_versions": [
+        "1.21"
+      ],
+      "loader": "fabric",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.21-fabric",
+      "baseline_id": "3aYhDRbC"
+    },
+    {
+      "minecraft": "1.20.6",
+      "game_versions": [
+        "1.20.6"
+      ],
+      "loader": "neoforge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.20.6-neoforge",
+      "baseline_id": "99Zl15sR"
+    },
+    {
+      "minecraft": "1.20.6",
+      "game_versions": [
+        "1.20.6"
+      ],
+      "loader": "forge",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.20.6-forge",
+      "baseline_id": "QnDeb0ws"
+    },
+    {
+      "minecraft": "1.20.6",
+      "game_versions": [
+        "1.20.6"
+      ],
+      "loader": "fabric",
+      "java": 21,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.20.6-fabric",
+      "baseline_id": "WW2oyCcL"
+    },
+    {
+      "minecraft": "1.20.4",
+      "game_versions": [
+        "1.20.4"
+      ],
+      "loader": "neoforge",
+      "java": 17,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.20.4-neoforge",
+      "baseline_id": "bpTl4shY"
+    },
+    {
+      "minecraft": "1.20.4",
+      "game_versions": [
+        "1.20.4"
+      ],
+      "loader": "forge",
+      "java": 17,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.20.4-forge",
+      "baseline_id": "A6r18nlS"
+    },
+    {
+      "minecraft": "1.20.4",
+      "game_versions": [
+        "1.20.4"
+      ],
+      "loader": "fabric",
+      "java": 17,
+      "kind": "portable",
+      "baseline_version": "1.0.0+1.20.4-fabric",
+      "baseline_id": "Aeg4xSj6"
+    },
+    {
+      "minecraft": "26.1.1",
+      "game_versions": [
+        "26.1.1"
+      ],
+      "loader": "neoforge",
+      "java": 25,
+      "kind": "state",
+      "baseline_version": "0.2.0+26.1.1-neoforge",
+      "baseline_id": "dPineRDm",
+      "neo_version": "26.1.1.15-beta",
+      "fabric_loader_version": "0.19.2"
+    },
+    {
+      "minecraft": "26.1.1",
+      "game_versions": [
+        "26.1.1"
+      ],
+      "loader": "fabric",
+      "java": 25,
+      "kind": "state",
+      "baseline_version": "0.2.0+26.1.1-fabric",
+      "baseline_id": "liGXuETn",
+      "neo_version": "26.1.1.15-beta",
+      "fabric_loader_version": "0.19.2"
+    },
+    {
+      "minecraft": "26.1",
+      "game_versions": [
+        "26.1"
+      ],
+      "loader": "neoforge",
+      "java": 25,
+      "kind": "state",
+      "baseline_version": "0.2.0+26.1-neoforge",
+      "baseline_id": "NEISMdd9",
+      "neo_version": "26.1.0.19-beta",
+      "fabric_loader_version": "0.19.2"
+    },
+    {
+      "minecraft": "26.1",
+      "game_versions": [
+        "26.1"
+      ],
+      "loader": "fabric",
+      "java": 25,
+      "kind": "state",
+      "baseline_version": "0.2.0+26.1-fabric",
+      "baseline_id": "cx5TYUz7",
+      "neo_version": "26.1.0.19-beta",
+      "fabric_loader_version": "0.19.2"
+    },
+    {
+      "minecraft": "22w24a",
+      "game_versions": [
+        "22w24a"
+      ],
+      "loader": "fabric",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+22w24a-fabric",
+      "baseline_id": "2uFQ48l6",
+      "forge_version": "41.0.62",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11",
+      "fabric_game_versions": [
+        "1.19.1-alpha.22.24.a"
+      ]
+    },
+    {
+      "minecraft": "1.20.1",
+      "game_versions": [
+        "1.20.1"
+      ],
+      "loader": "forge",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.20.1-forge",
+      "baseline_id": "iWLGJ1Po",
+      "forge_version": "47.4.20",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.20.1",
+      "game_versions": [
+        "1.20.1"
+      ],
+      "loader": "fabric",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.20.1-fabric",
+      "baseline_id": "4j8sLIll",
+      "forge_version": "47.4.20",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.20",
+      "game_versions": [
+        "1.20"
+      ],
+      "loader": "forge",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.20-forge",
+      "baseline_id": "wofqvVxr",
+      "forge_version": "46.0.14",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.20",
+      "game_versions": [
+        "1.20"
+      ],
+      "loader": "fabric",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.20-fabric",
+      "baseline_id": "9LRkcNPe",
+      "forge_version": "46.0.14",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.19.4",
+      "game_versions": [
+        "1.19.4"
+      ],
+      "loader": "fabric",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.19.4-fabric",
+      "baseline_id": "tEd9b0MV",
+      "forge_version": "45.4.2",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.19.3",
+      "game_versions": [
+        "1.19.3"
+      ],
+      "loader": "fabric",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.19.3-fabric",
+      "baseline_id": "oBIlUrJD",
+      "forge_version": "44.1.23",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.19.2",
+      "game_versions": [
+        "1.19.2"
+      ],
+      "loader": "forge",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.19.2-forge",
+      "baseline_id": "IT6zA0vW",
+      "forge_version": "43.4.20",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.19.2",
+      "game_versions": [
+        "1.19.2"
+      ],
+      "loader": "fabric",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.19.2-fabric",
+      "baseline_id": "qG3vDdTN",
+      "forge_version": "43.4.20",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.19.1",
+      "game_versions": [
+        "1.19.1"
+      ],
+      "loader": "forge",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.19.1-forge",
+      "baseline_id": "tZHeAgCR",
+      "forge_version": "42.0.9",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.19.1",
+      "game_versions": [
+        "1.19.1"
+      ],
+      "loader": "fabric",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.19.1-fabric",
+      "baseline_id": "8xN5obUo",
+      "forge_version": "42.0.9",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.19",
+      "game_versions": [
+        "1.19"
+      ],
+      "loader": "forge",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.19-forge",
+      "baseline_id": "kd9j2KLY",
+      "forge_version": "41.1.0",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.19",
+      "game_versions": [
+        "1.19"
+      ],
+      "loader": "fabric",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.19-fabric",
+      "baseline_id": "FxMaRPLo",
+      "forge_version": "41.1.0",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.18.2",
+      "game_versions": [
+        "1.18.2"
+      ],
+      "loader": "forge",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.18.2-forge",
+      "baseline_id": "ceVQXsOx",
+      "forge_version": "40.2.21",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.18.2",
+      "game_versions": [
+        "1.18.2"
+      ],
+      "loader": "fabric",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.18.2-fabric",
+      "baseline_id": "JyiTZV6n",
+      "forge_version": "40.2.21",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.18.1",
+      "game_versions": [
+        "1.18.1"
+      ],
+      "loader": "forge",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.18.1-forge",
+      "baseline_id": "dzYB1IHD",
+      "forge_version": "39.1.2",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.18.1",
+      "game_versions": [
+        "1.18.1"
+      ],
+      "loader": "fabric",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.18.1-fabric",
+      "baseline_id": "Nxkv4tLi",
+      "forge_version": "39.1.2",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.18",
+      "game_versions": [
+        "1.18"
+      ],
+      "loader": "forge",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.18-forge",
+      "baseline_id": "O3GtZZ7n",
+      "forge_version": "38.0.17",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.18",
+      "game_versions": [
+        "1.18"
+      ],
+      "loader": "fabric",
+      "java": 17,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.18-fabric",
+      "baseline_id": "Gk2mos5L",
+      "forge_version": "38.0.17",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.17.1",
+      "game_versions": [
+        "1.17.1"
+      ],
+      "loader": "forge",
+      "java": 16,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.17.1-forge",
+      "baseline_id": "8OTr7rdF",
+      "forge_version": "37.1.1",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.16.5",
+      "game_versions": [
+        "1.16.5"
+      ],
+      "loader": "forge",
+      "java": 8,
+      "kind": "state",
+      "baseline_version": "0.2.0+1.16.5-forge",
+      "baseline_id": "JjHawBEW",
+      "forge_version": "36.2.42",
+      "neo_version": "47.1.106",
+      "fabric_loader_version": "0.15.11"
+    },
+    {
+      "minecraft": "1.12.2",
+      "game_versions": [
+        "1.12.2"
+      ],
+      "loader": "forge",
+      "java": 8,
+      "kind": "legacy",
+      "baseline_version": "0.2.0+1.12.2-forge",
+      "baseline_id": "d3H657k0"
+    }
+  ]
+}

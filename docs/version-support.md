@@ -1,28 +1,24 @@
 # Version support
 
-RinLib is a shared library for RinChan Minecraft mods. Each supported Minecraft version has its own release line because loader APIs, Gradle plugins, mappings, and Java requirements change across eras.
+[`support/profiles.json`](../support/profiles.json) is the release matrix. It tracks the latest published profile for each supported Minecraft and loader combination, including its existing public API. There are 67 artifacts covering 32 Minecraft versions and 69 Minecraft/loader combinations; the 1.21.3 Fabric and NeoForge artifacts also support 1.21.2.
 
-## Target matrix
+## Shared implementations
 
-| Minecraft | Forge | NeoForge | Fabric | Java | Status |
-| --- | --- | --- | --- | --- | --- |
-| 1.7.10 | Forge `10.13.4.1614` | Not applicable | Not applicable | 8 | Target |
-| 1.12.2 | Forge `14.23.5.2864` | Not applicable | Not applicable | 8 | Target |
-| 1.16.5 | Forge `36.2.42` | Not applicable | Fabric API `0.42.0+1.16` | 8 | Target |
-| 1.20.1 | Forge `47.4.20` | NeoForge `47.1.106` | Fabric API `0.92.9+1.20.1` | 17 | Target |
-| 1.21.1 | Not targeted | NeoForge `21.1.229` | Fabric API `0.116.12+1.21.1` | 21 | Implemented first |
-| 26.1.x | Not targeted | NeoForge `26.1.2.48-beta` | Fabric API `0.148.2+26.1.2` | 21 | Target |
+| Profile | APIs | Source |
+| --- | --- | --- |
+| `legacy` | Shared owner and sticky boolean | Common state code, legacy Forge entrypoint |
+| `state` | Shared owner, sticky boolean and item durability | Common state code, Minecraft item adapter, loader entrypoint |
+| `portable` | Shared owner, sticky boolean, scoped flags and payment planning | Common Java code, compiled to Java 17 |
+| `full` | Portable APIs and item durability; NeoForge also supplies effect and game-rule bridges | Common Java code, Minecraft adapters, loader entrypoint |
 
-Forge is intentionally capped at Minecraft 1.20.1. NeoForge starts at Minecraft 1.20.1. Fabric starts at Minecraft 1.16.5.
+The full profiles are Minecraft 1.21.1, 26.1.2 and 26.2 on Fabric and NeoForge. API availability is preserved from the latest published artifact for each profile. `KeepInventoryProjection` provides a scope; the actual game-rule projection mixin is included in full NeoForge profiles.
 
-## Release-line rule
+Shared map identity remains `new UUID(0L, 1L)`. `SharedOwnerState.put` returns the inserted value. Existing actor-specific entries are left untouched.
 
-Use one repository, but keep incompatible Minecraft eras isolated by release line. Share source only when the API contract is actually stable for that era.
+## Builds
 
-Recommended source sharing:
+Every artifact is compiled from this repository. Portable profiles reuse one Java 17 JAR with loader-specific metadata. Minecraft-bound profiles compile the same common sources against their selected Minecraft and loader dependencies; old release JARs are not build inputs.
 
-- `shared-modern`: Minecraft 1.20.1, 1.21.1, and 26.1.x where the same Mojang-mapped concepts still compile.
-- `shared-1.16`: Minecraft 1.16.5-specific shared behavior for Forge and Fabric.
-- `legacy-forge`: Minecraft 1.7.10 and 1.12.2 ports, with shared behavior kept small because package names, mappings, and lifecycle APIs differ heavily.
+Gradle outputs and project caches are isolated per Minecraft/loader profile. The legacy Forge build uses Gradle 4.10.3 and Java 8; current Forge profiles use Gradle 8.10.2; Fabric and NeoForge profiles use Gradle 9.2.1. Gradle launcher and target Java versions may differ.
 
-Do not force one Java source set across all versions if that creates brittle compatibility code. The stable contract is the behavior; loader and Minecraft-version glue may differ.
+Published API fixtures are stored in `tests/fixtures/public-api.json`. `tests/verify_artifacts.py` checks public binary interfaces, bytecode versions, metadata references, license inclusion and absence of runtime test classes in production JARs.

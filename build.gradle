@@ -9,13 +9,18 @@ subprojects {
     version = rootProject.mod_version
 
     repositories {
-        mavenLocal()
         mavenCentral()
         maven { url = 'https://maven.fabricmc.net/' }
         maven { url = 'https://maven.neoforged.net/releases' }
     }
 
     plugins.withType(JavaPlugin).configureEach {
+        dependencies {
+            testImplementation platform('org.junit:junit-bom:5.10.2')
+            testImplementation 'org.junit.jupiter:junit-jupiter'
+            testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+        }
+        tasks.withType(Test).configureEach { useJUnitPlatform() }
         java.toolchain.languageVersion = JavaLanguageVersion.of(rootProject.java_version as int)
         tasks.withType(JavaCompile).configureEach {
             options.encoding = 'UTF-8'

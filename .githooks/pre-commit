@@ -10,7 +10,6 @@ if ! command -v docker >/dev/null 2>&1; then
 fi
 
 image_tag="$(basename "$repo_root")-local-ci:latest"
-branch_name="$(git rev-parse --abbrev-ref HEAD)"
 host_uid="$(id -u)"
 host_gid="$(id -g)"
 gradle_user_home="${GRADLE_USER_HOME:-$HOME/.gradle}"
@@ -32,7 +31,7 @@ if [[ -n "$foreign_path" ]]; then
 fi
 
 echo "minecraft mod local ci: building container image..."
-docker build -f .ci/local-ci/Dockerfile --build-arg RINLIB_REF="$branch_name" -t "$image_tag" .
+docker build -f .ci/local-ci/Dockerfile -t "$image_tag" .
 
 tree_id="$(git write-tree)"
 archive_file="$(mktemp)"
@@ -40,7 +39,13 @@ trap 'rm -f "$archive_file"' EXIT
 git archive --format=tar "$tree_id" >"$archive_file"
 
 echo "minecraft mod local ci: running checks in container..."
-docker run --rm \
+set -- docker run --rm
+if [[ -n "${RINLIB_EULA_FILE:-}" ]]; then
+  eula_file="$(cd "$(dirname "$RINLIB_EULA_FILE")" && pwd)/$(basename "$RINLIB_EULA_FILE")"
+  set -- "$@" -e "RINLIB_EULA_FILE=/tmp/rinlib-eula.txt" -v "$eula_file:/tmp/rinlib-eula.txt:ro"
+fi
+
+"$@" \
   --user "$host_uid:$host_gid" \
   -e HOME="$HOME" \
   -e RUN_SERVER_SMOKE="${RUN_SERVER_SMOKE:-1}" \
