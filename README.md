@@ -1,1 +1,1 @@
-RinChan 制作的模组的跨版本代码库
+A cross-version code library for mods made by RinChan.
