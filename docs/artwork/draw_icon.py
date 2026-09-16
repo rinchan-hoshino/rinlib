@@ -1,18 +1,19 @@
 from PIL import Image, ImageDraw
 from pathlib import Path
-out=Path(__file__).resolve().parent
-im=Image.new("RGBA",(48,48),(0,0,0,0));d=ImageDraw.Draw(im)
-ink="#38352f";gold="#eab94e";light="#ffe395";shade="#b88132"
-# A small library: three books on a single shelf, drawn on the pixel grid.
-d.rectangle((7,10,17,35),fill=ink);d.rectangle((9,12,15,33),fill=gold)
-d.rectangle((9,12,10,33),fill=light);d.rectangle((14,12,15,33),fill=shade)
-d.rectangle((10,16,14,17),fill=ink);d.rectangle((10,28,14,29),fill=ink)
-d.rectangle((19,7,29,35),fill=ink);d.rectangle((21,9,27,33),fill="#8cad97")
-d.rectangle((21,9,22,33),fill="#c2d9af");d.rectangle((26,9,27,33),fill="#567f73")
-d.rectangle((22,13,26,14),fill=ink);d.rectangle((22,28,26,29),fill=ink)
-d.polygon([(31,12),(39,10),(44,33),(35,35)],fill=ink)
-d.polygon([(33,14),(37,13),(41,31),(37,32)],fill=gold)
-d.line([(33,14),(37,31)],fill=light,width=1)
-d.rectangle((5,35,44,39),fill=ink);d.rectangle((7,35,42,36),fill="#b79669")
-im.save(out/"rinlib-icon-48.png")
-im.resize((576,576),Image.Resampling.NEAREST).save(out/"rinlib-icon.png")
+out = Path(__file__).resolve().parent
+im = Image.new('RGBA', (48, 48), (0, 0, 0, 0))
+d = ImageDraw.Draw(im)
+ink = '#493e32'
+# Original geometric white hair bow, with Rin-yellow knot and restrained shading.
+d.polygon([(7,9),(12,9),(23,19),(25,19),(36,9),(41,9),(41,14),(37,25),(28,27),(33,36),(32,40),(25,37),(24,32),(23,37),(16,40),(15,36),(20,27),(11,25),(7,14)], fill=ink)
+d.polygon([(10,12),(12,12),(22,21),(21,24),(13,22),(10,14)], fill='#fff8dd')
+d.polygon([(36,12),(38,12),(38,14),(35,22),(27,24),(26,21)], fill='#fff8dd')
+d.polygon([(13,20),(21,22),(21,24),(13,22)], fill='#d6d0ba')
+d.polygon([(27,22),(35,20),(35,22),(27,24)], fill='#d6d0ba')
+d.polygon([(22,27),(23,28),(21,35),(18,37)], fill='#fff8dd')
+d.polygon([(25,28),(26,27),(30,37),(27,35)], fill='#fff8dd')
+d.rectangle((21,19,27,27), fill=ink)
+d.rectangle((23,21,25,25), fill='#f3bd43')
+d.rectangle((23,21,25,22), fill='#ffe58c')
+im.save(out/'rinlib-icon-48.png')
+im.resize((576,576), Image.Resampling.NEAREST).save(out/'rinlib-icon.png')
