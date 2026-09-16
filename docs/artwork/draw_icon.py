@@ -17,3 +17,7 @@ d.rectangle((23,21,25,25), fill='#f3bd43')
 d.rectangle((23,21,25,22), fill='#ffe58c')
 im.save(out/'rinlib-icon-48.png')
 im.resize((576,576), Image.Resampling.NEAREST).save(out/'rinlib-icon.png')
+
+platform = Image.new("RGBA", (400, 400))
+platform.paste(im.resize((384, 384), Image.Resampling.NEAREST), (8, 8))
+platform.save(out / "rinlib-icon-platform.png")
