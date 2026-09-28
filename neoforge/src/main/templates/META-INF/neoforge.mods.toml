@@ -6,6 +6,9 @@ issueTrackerURL="https://github.com/rinchan-hoshino/rinlib/issues"
 [[mixins]]
 config="rinlib.mixins.json"
 
+[[mixins]]
+config="rinlib.commands.mixins.json"
+
 [[mods]]
 modId="${mod_id}"
 version="${mod_version}"

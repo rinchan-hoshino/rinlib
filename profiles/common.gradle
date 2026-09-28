@@ -44,6 +44,15 @@ sourceSets.main.java {
     }
 }
 
+if (target.kind == 'full') {
+    sourceSets.main.java.srcDirs += [
+            new File(rinlibRoot, 'adapters/commands-modern'),
+            new File(rinlibRoot, 'adapters/data-components'),
+            new File(rinlibRoot, target.minecraft.startsWith('26.') ? 'adapters/player-26' : 'adapters/player-1.21'),
+            new File(rinlibRoot, target.minecraft.startsWith('26.') ? 'adapters/item-26' : 'adapters/item-1.21')
+    ]
+}
+
 def generated = layout.buildDirectory.dir('generated/metadata')
 tasks.register('generateMetadata', Exec) {
     inputs.file new File(rinlibRoot, 'support/profiles.json')

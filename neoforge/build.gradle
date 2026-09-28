@@ -11,6 +11,11 @@ base {
 sourceSets.main.java.srcDir rootProject.file('common/src/main/java')
 sourceSets.main.java.srcDir rootProject.file('adapters/shared')
 sourceSets.main.java.srcDir rootProject.file('adapters/1.21')
+sourceSets.main.java.srcDir rootProject.file('adapters/commands-modern')
+sourceSets.main.java.srcDir rootProject.file('adapters/data-components')
+sourceSets.main.java.srcDir rootProject.file('adapters/player-1.21')
+sourceSets.main.java.srcDir rootProject.file('adapters/item-1.21')
+sourceSets.main.resources.srcDir rootProject.file('adapters/commands-modern/resources')
 sourceSets.test.java.srcDir rootProject.file('common/src/test/java')
 sourceSets.main.resources.srcDir tasks.register('generateModMetadata', ProcessResources) {
     def replaceProperties = [

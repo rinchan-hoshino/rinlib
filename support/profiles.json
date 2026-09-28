@@ -37,7 +37,7 @@
       "kind": "full",
       "baseline_version": "1.0.0+26.2-neoforge",
       "baseline_id": "l9GO4lKV",
-      "neo_version": "26.2.0.1-beta",
+      "neo_version": "26.2.0.69",
       "fabric_loader_version": "0.19.2"
     },
     {
@@ -50,7 +50,7 @@
       "kind": "full",
       "baseline_version": "1.0.0+26.2-fabric",
       "baseline_id": "VE0O8HmD",
-      "neo_version": "26.2.0.1-beta",
+      "neo_version": "26.2.0.69",
       "fabric_loader_version": "0.19.2"
     },
     {
@@ -63,7 +63,7 @@
       "kind": "full",
       "baseline_version": "1.0.0+26.1.2-neoforge",
       "baseline_id": "ChYbzC7E",
-      "neo_version": "26.1.2.48-beta",
+      "neo_version": "26.1.2.99",
       "fabric_loader_version": "0.19.2"
     },
     {
@@ -76,7 +76,7 @@
       "kind": "full",
       "baseline_version": "1.0.0+26.1.2-fabric",
       "baseline_id": "lCue7Euf",
-      "neo_version": "26.1.2.48-beta",
+      "neo_version": "26.1.2.99",
       "fabric_loader_version": "0.19.2"
     },
     {

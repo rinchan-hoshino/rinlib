@@ -31,7 +31,7 @@ def fabric_metadata(profile: dict, version: str) -> bytes:
         "id": "rinlib",
         "version": version,
         "name": "RinLib",
-        "description": "Small shared contracts for RinChan Minecraft mods.",
+        "description": "A cross-version code library for mods made by RinChan.",
         "authors": ["RinChan"],
         "contact": {
             "homepage": "https://modrinth.com/mod/rinlib",
@@ -48,6 +48,8 @@ def fabric_metadata(profile: dict, version: str) -> bytes:
     }
     if profile["kind"] != "portable":
         data["entrypoints"] = {"main": ["dev.rinchan.rinlib.fabric.RinLibFabric"]}
+    if profile["kind"] == "full":
+        data["mixins"] = ["rinlib.commands.mixins.json"]
     return (json.dumps(data, indent=2) + "\n").encode()
 
 
@@ -57,6 +59,8 @@ def toml_metadata(profile: dict, version: str, has_mixins: bool) -> tuple[str, b
     path = "META-INF/mods.toml" if loader == "forge" or profile["minecraft"] == "1.20.4" else "META-INF/neoforge.mods.toml"
     mod_loader = "lowcodefml" if profile["kind"] == "portable" else "javafml"
     mixins = '\n[[mixins]]\nconfig="rinlib.mixins.json"\n' if has_mixins else ""
+    if profile["kind"] == "full":
+        mixins += '\n[[mixins]]\nconfig="rinlib.commands.mixins.json"\n'
     text = f'''modLoader="{mod_loader}"
 loaderVersion="[1,)"
 license="GPL-3.0-or-later"
@@ -68,7 +72,7 @@ version="{version}"
 displayName="RinLib"
 displayURL="https://modrinth.com/mod/rinlib"
 authors="RinChan"
-description="Small shared contracts for RinChan Minecraft mods."
+description="A cross-version code library for mods made by RinChan."
 
 [[dependencies.rinlib]]
 modId="minecraft"
@@ -103,12 +107,17 @@ def profiles():
 
 def metadata(profile, version):
     if profile["loader"] == "fabric":
-        return {"fabric.mod.json": fabric_metadata(profile, version)}
-    full = profile["kind"] == "full" and profile["loader"] == "neoforge"
-    name, data = toml_metadata(profile, version, full)
-    entries = {name: data}
-    if full:
-        entries["rinlib.mixins.json"] = (ROOT / "neoforge/src/main/resources/rinlib.mixins.json").read_bytes()
+        entries = {"fabric.mod.json": fabric_metadata(profile, version)}
+    else:
+        full = profile["kind"] == "full" and profile["loader"] == "neoforge"
+        name, data = toml_metadata(profile, version, full)
+        entries = {name: data}
+        if full:
+            entries["rinlib.mixins.json"] = (ROOT / "neoforge/src/main/resources/rinlib.mixins.json").read_bytes()
+    if profile["kind"] == "full":
+        commands = json.loads((ROOT / "adapters/commands-modern/resources/rinlib.commands.mixins.json").read_text())
+        commands["compatibilityLevel"] = "JAVA_" + str(profile["java"])
+        entries["rinlib.commands.mixins.json"] = (json.dumps(commands, indent=2) + "\n").encode()
     return entries
 
 
