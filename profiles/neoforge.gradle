@@ -3,4 +3,8 @@ apply from: 'common.gradle'
 neoForge {
     version = target.neo_version
     mods { rinlib { sourceSet sourceSets.main } }
+    unitTest {
+        enable()
+        testedMod = mods.rinlib
+    }
 }

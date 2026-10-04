@@ -18,6 +18,9 @@ sourceSets.main.java.srcDir rootProject.file('adapters/commands-modern')
 sourceSets.main.java.srcDir rootProject.file('adapters/data-components')
 sourceSets.main.java.srcDir rootProject.file('adapters/player-1.21')
 sourceSets.main.java.srcDir rootProject.file('adapters/item-1.21')
+sourceSets.main.java.srcDir rootProject.file('adapters/structure-shared')
+sourceSets.main.java.srcDir rootProject.file('adapters/structure-1.21')
+sourceSets.main.resources.srcDir rootProject.file('adapters/structure-shared/resources')
 sourceSets.main.resources.srcDir rootProject.file('adapters/commands-modern/resources')
 sourceSets.test.java.srcDir root.file('common/src/test/java')
 
@@ -55,3 +58,5 @@ publishing {
         }
     }
 }
+
+sourceSets.main.java.srcDir rootProject.file('adapters/structure-legacy-hooks')

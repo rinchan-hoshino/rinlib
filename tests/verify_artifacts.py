@@ -21,11 +21,27 @@ def public_api(jar, javap):
             if line.strip() and not line.startswith('Compiled from')]
 
 
+def verify_existing_api(actual, baseline):
+    """New classes are additive; every published class keeps its exact interface."""
+    def classes(lines):
+        result = {}
+        block = None
+        for line in lines:
+            if line.endswith('{'):
+                block = result.setdefault(line, [])
+            if block is not None:
+                block.append(line)
+        return result
+    current = classes(actual)
+    for declaration, interface in classes(baseline).items():
+        assert current.get(declaration) == interface, 'public API changed: ' + declaration
+
+
 def verify(record, baseline, javap):
     jar = Path(record['file'])
     assert hashlib.sha256(jar.read_bytes()).hexdigest() == record['sha256'], 'artifact hash mismatch'
     actual = public_api(jar, javap)
-    assert actual == baseline['api'], 'public API changed'
+    verify_existing_api(actual, baseline['api'])
     with zipfile.ZipFile(jar) as archive:
         names = archive.namelist()
         assert len(names) == len(set(names)), 'duplicate archive entries'
@@ -47,8 +63,8 @@ def verify(record, baseline, javap):
             if descriptors:
                 text = archive.read(descriptors[0]).decode()
                 assert 'issueTrackerURL="https://github.com/rinchan-hoshino/rinlib/issues"' in text
-                if '[[mixins]]' in text:
-                    mixins = json.loads(archive.read('rinlib.mixins.json'))
+                for config in re.findall(r'config=\"([^\"]+)\"', text):
+                    mixins = json.loads(archive.read(config))
                     for name in mixins['mixins']:
                         assert (mixins['package'] + '.' + name).replace('.', '/') + '.class' in names
     return jar

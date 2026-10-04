@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0
+
+- Add structure resource operations shared by Minecraft 1.20.1, 1.21.1, 26.1.2 and 26.2.
+- Scope structure preparation to vanilla template resource sources and release it when a server stops.
+- Keep template initialization and reload hooks inside RinLib so dependent mods share one core implementation.
+- Supply a named development jar for the Forge 1.20.1 profile alongside its runtime jar.
+
 ## 1.0.2
 
 - Build all release profiles from one checkout and shared sources, without merging old release JARs.

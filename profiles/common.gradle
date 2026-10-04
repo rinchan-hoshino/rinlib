@@ -16,10 +16,17 @@ if (project.hasProperty('runtimeMinecraft')) {
 }
 group = config.mod_group_id
 version = config.mod_version.split('\\+')[0] + '+' + target.minecraft
-buildDir = new File(rinlibRoot, "build/profiles/${target.minecraft}-${target.loader}")
+layout.buildDirectory.set(new File(rinlibRoot, "build/profiles/${target.minecraft}-${target.loader}"))
 base { archivesName = "rinlib-${target.loader}" }
 java.toolchain.languageVersion = JavaLanguageVersion.of(target.java as int)
 repositories { mavenCentral() }
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+if (target.structure_api) sourceSets.test.java.srcDir new File(rinlibRoot, 'structure-tests')
+tasks.withType(Test).configureEach { useJUnitPlatform() }
 tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
 tasks.withType(AbstractArchiveTask).configureEach {
     preserveFileTimestamps = false
@@ -53,6 +60,18 @@ if (target.kind == 'full') {
     ]
 }
 
+if (target.structure_api) {
+    sourceSets.main.java.srcDirs += [
+        new File(rinlibRoot, 'adapters/structure-shared'),
+        new File(rinlibRoot, target.minecraft.startsWith('26.') ? 'adapters/structure-26' :
+            target.minecraft == '1.20.1' ? 'adapters/structure-1.20' : 'adapters/structure-1.21')
+    ]
+    if (target.kind == 'state') {
+        sourceSets.main.java.include 'dev/rinchan/rinlib/minecraft/Structure*.java',
+            'dev/rinchan/rinlib/mixin/structure/**'
+    }
+}
+
 def generated = layout.buildDirectory.dir('generated/metadata')
 tasks.register('generateMetadata', Exec) {
     inputs.file new File(rinlibRoot, 'support/profiles.json')
@@ -64,3 +83,7 @@ tasks.register('generateMetadata', Exec) {
 }
 sourceSets.main.resources.srcDir(tasks.named('generateMetadata'))
 jar { from(new File(rinlibRoot, 'LICENSE')) }
+
+if (target.structure_api && !target.minecraft.startsWith('26.')) {
+    sourceSets.main.java.srcDir new File(rinlibRoot, 'adapters/structure-legacy-hooks')
+}

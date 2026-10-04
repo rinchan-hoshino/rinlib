@@ -15,8 +15,12 @@ sourceSets.main.java.srcDir rootProject.file('adapters/commands-modern')
 sourceSets.main.java.srcDir rootProject.file('adapters/data-components')
 sourceSets.main.java.srcDir rootProject.file('adapters/player-1.21')
 sourceSets.main.java.srcDir rootProject.file('adapters/item-1.21')
+sourceSets.main.java.srcDir rootProject.file('adapters/structure-shared')
+sourceSets.main.java.srcDir rootProject.file('adapters/structure-1.21')
+sourceSets.main.resources.srcDir rootProject.file('adapters/structure-shared/resources')
 sourceSets.main.resources.srcDir rootProject.file('adapters/commands-modern/resources')
 sourceSets.test.java.srcDir rootProject.file('common/src/test/java')
+sourceSets.test.java.srcDir rootProject.file('structure-tests')
 sourceSets.main.resources.srcDir tasks.register('generateModMetadata', ProcessResources) {
     def replaceProperties = [
         minecraft_version_range: rootProject.minecraft_version_range,
@@ -42,6 +46,10 @@ neoForge {
         "${rootProject.mod_id}" {
             sourceSet(sourceSets.main)
         }
+    }
+    unitTest {
+        enable()
+        testedMod = mods.rinlib
     }
     runs {
         client { client() }
@@ -69,3 +77,5 @@ publishing {
 }
 
 tasks.named('runServer') { standardInput = System.in }
+
+sourceSets.main.java.srcDir rootProject.file('adapters/structure-legacy-hooks')

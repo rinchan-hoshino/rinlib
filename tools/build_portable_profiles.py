@@ -50,6 +50,8 @@ def fabric_metadata(profile: dict, version: str) -> bytes:
         data["entrypoints"] = {"main": ["dev.rinchan.rinlib.fabric.RinLibFabric"]}
     if profile["kind"] == "full":
         data["mixins"] = ["rinlib.commands.mixins.json"]
+    if profile.get("structure_api"):
+        data.setdefault("mixins", []).append("rinlib.structure.mixins.json")
     return (json.dumps(data, indent=2) + "\n").encode()
 
 
@@ -61,6 +63,8 @@ def toml_metadata(profile: dict, version: str, has_mixins: bool) -> tuple[str, b
     mixins = '\n[[mixins]]\nconfig="rinlib.mixins.json"\n' if has_mixins else ""
     if profile["kind"] == "full":
         mixins += '\n[[mixins]]\nconfig="rinlib.commands.mixins.json"\n'
+    if profile.get("structure_api") and loader != "forge":
+        mixins += '\n[[mixins]]\nconfig="rinlib.structure.mixins.json"\n'
     text = f'''modLoader="{mod_loader}"
 loaderVersion="[1,)"
 license="GPL-3.0-or-later"
@@ -118,6 +122,17 @@ def metadata(profile, version):
         commands = json.loads((ROOT / "adapters/commands-modern/resources/rinlib.commands.mixins.json").read_text())
         commands["compatibilityLevel"] = "JAVA_" + str(profile["java"])
         entries["rinlib.commands.mixins.json"] = (json.dumps(commands, indent=2) + "\n").encode()
+    if profile.get("structure_api"):
+        config = {
+            "required": True, "minVersion": "0.8",
+            "package": "dev.rinchan.rinlib.mixin.structure",
+            "compatibilityLevel": "JAVA_" + str(profile["java"]),
+            "mixins": ["TemplateResourcesMixin", "ServerStopMixin"],
+            "injectors": {"defaultRequire": 1}
+        }
+        if profile["loader"] == "forge":
+            config["refmap"] = "rinlib.structure.refmap.json"
+        entries["rinlib.structure.mixins.json"] = (json.dumps(config, indent=2) + "\n").encode()
     return entries
 
 
@@ -126,7 +141,7 @@ def source_fingerprint():
         ["git", "ls-files", "-co", "--exclude-standard", "-z",
          "common", "adapters", "profiles", "support", "tools", "gradle", "build.gradle", "settings.gradle",
          "gradle.properties", "LICENSE", "gradlew", "fabric/src", "neoforge/src", "fabric/build.gradle",
-         "neoforge/build.gradle", "portable/build.gradle"], cwd=ROOT).decode().split("\0")
+         "neoforge/build.gradle", "portable/build.gradle", "structure-tests", "tests"], cwd=ROOT).decode().split("\0")
     digest = hashlib.sha256()
     for name in sorted(set(names)):
         path = ROOT / name

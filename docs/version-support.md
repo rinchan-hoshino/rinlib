@@ -22,3 +22,11 @@ Every artifact is compiled from this repository. Portable profiles reuse one Jav
 Gradle outputs and project caches are isolated per Minecraft/loader profile. The legacy Forge build uses Gradle 4.10.3 and Java 8; current Forge profiles use Gradle 8.10.2; Fabric and NeoForge profiles use Gradle 9.2.1. Gradle launcher and target Java versions may differ.
 
 Published API fixtures are stored in `tests/fixtures/public-api.json`. `tests/verify_artifacts.py` checks public binary interfaces, bytecode versions, metadata references, license inclusion and absence of runtime test classes in production JARs.
+
+
+## Structure adapter (1.2.0)
+
+Profiles marked `structure_api` also provide `StructureResources` and
+`StructureLifecycle`: 1.20.1 Fabric/Forge and 1.21.1, 26.1.2, 26.2 Fabric/NeoForge.
+The flag augments the profile's existing APIs. Other profiles keep their previous
+source selection and API surface.

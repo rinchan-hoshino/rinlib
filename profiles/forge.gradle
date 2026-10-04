@@ -1,6 +1,26 @@
+buildscript {
+    if (gradle.startParameter.projectProperties['profile'] == '1.20.1') {
+        repositories { maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }; mavenCentral() }
+        dependencies { classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT' }
+    }
+}
 plugins { id 'net.minecraftforge.gradle' version '6.0.36' }
 apply plugin: 'java-library'
 apply from: 'common.gradle'
 minecraft { mappings channel: 'official', version: target.minecraft }
 dependencies { minecraft "net.minecraftforge:forge:${target.minecraft}-${target.forge_version}" }
 jar.finalizedBy('reobfJar')
+
+if (target.structure_api) {
+    apply plugin: 'org.spongepowered.mixin'
+    dependencies { annotationProcessor 'org.spongepowered:mixin:0.8.5:processor' }
+    mixin { add sourceSets.main, 'rinlib.structure.refmap.json'; config 'rinlib.structure.mixins.json' }
+    jar { manifest.attributes('MixinConfigs': 'rinlib.structure.mixins.json') }
+}
+
+// Keep a named artifact for consumers compiling or running ordinary JVM tests.
+tasks.register('devJar', Jar) {
+    archiveClassifier.set('dev')
+    from sourceSets.main.output
+}
+tasks.named('assemble') { dependsOn 'devJar' }

@@ -8,10 +8,11 @@ RinLib is the shared runtime library for RinChan Minecraft mods. Stable state an
 - `StickyBoolean` keeps a boolean true once it becomes true.
 - `ReentrantFlag` and `KeepInventoryProjection` manage nested, thread-local scopes.
 - `DenominatedPayment` creates immutable payment and change plans from ordered inventory stacks.
+- `StructureResources` and `StructureLifecycle` adapt template resources and their preparation lifecycle.
 - `DamageState` checks and bounds item durability.
 - `MobEffectState` applies effects to server players on supported NeoForge profiles.
 
-API availability follows each [version profile](docs/version-support.md).
+API availability follows each [version profile](version-support.md).
 
 ## Build and test
 
@@ -34,6 +35,6 @@ python3 tests/verify_artifacts.py
 
 Set `JAVA_8_HOME`, `JAVA_16_HOME`, `JAVA_17_HOME`, `JAVA_21_HOME`, and `JAVA_25_HOME` to the installed JDKs needed by the selected profiles. Build results, hashes and logs are written to `build/matrix`. Resume reuses artifacts only when the source fingerprint and artifact hashes match.
 
-For local dedicated-server checks, see [runtime testing](runtime-tests/README.md).
+For local dedicated-server checks, see [runtime testing](../runtime-tests/README.md).
 
 [Downloads](https://modrinth.com/mod/rinlib) · [Issues](https://github.com/rinchan-hoshino/rinlib/issues)

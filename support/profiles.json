@@ -12,7 +12,8 @@
       "baseline_version": "1.0.1+1.21.1-neoforge",
       "baseline_id": "3bDGrj4z",
       "neo_version": "21.1.228",
-      "fabric_loader_version": "0.19.2"
+      "fabric_loader_version": "0.19.2",
+      "structure_api": true
     },
     {
       "minecraft": "1.21.1",
@@ -25,7 +26,8 @@
       "baseline_version": "1.0.1+1.21.1-fabric",
       "baseline_id": "LnWRqVKF",
       "neo_version": "21.1.228",
-      "fabric_loader_version": "0.19.2"
+      "fabric_loader_version": "0.19.2",
+      "structure_api": true
     },
     {
       "minecraft": "26.2",
@@ -38,7 +40,8 @@
       "baseline_version": "1.0.0+26.2-neoforge",
       "baseline_id": "l9GO4lKV",
       "neo_version": "26.2.0.69",
-      "fabric_loader_version": "0.19.2"
+      "fabric_loader_version": "0.19.2",
+      "structure_api": true
     },
     {
       "minecraft": "26.2",
@@ -51,7 +54,8 @@
       "baseline_version": "1.0.0+26.2-fabric",
       "baseline_id": "VE0O8HmD",
       "neo_version": "26.2.0.69",
-      "fabric_loader_version": "0.19.2"
+      "fabric_loader_version": "0.19.2",
+      "structure_api": true
     },
     {
       "minecraft": "26.1.2",
@@ -64,7 +68,8 @@
       "baseline_version": "1.0.0+26.1.2-neoforge",
       "baseline_id": "ChYbzC7E",
       "neo_version": "26.1.2.99",
-      "fabric_loader_version": "0.19.2"
+      "fabric_loader_version": "0.19.2",
+      "structure_api": true
     },
     {
       "minecraft": "26.1.2",
@@ -77,7 +82,8 @@
       "baseline_version": "1.0.0+26.1.2-fabric",
       "baseline_id": "lCue7Euf",
       "neo_version": "26.1.2.99",
-      "fabric_loader_version": "0.19.2"
+      "fabric_loader_version": "0.19.2",
+      "structure_api": true
     },
     {
       "minecraft": "1.21.11",
@@ -547,7 +553,8 @@
       "baseline_id": "iWLGJ1Po",
       "forge_version": "47.4.20",
       "neo_version": "47.1.106",
-      "fabric_loader_version": "0.15.11"
+      "fabric_loader_version": "0.15.11",
+      "structure_api": true
     },
     {
       "minecraft": "1.20.1",
@@ -561,7 +568,8 @@
       "baseline_id": "4j8sLIll",
       "forge_version": "47.4.20",
       "neo_version": "47.1.106",
-      "fabric_loader_version": "0.15.11"
+      "fabric_loader_version": "0.15.11",
+      "structure_api": true
     },
     {
       "minecraft": "1.20",
