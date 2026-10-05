@@ -2,6 +2,9 @@
 
 ## 1.2.0
 
+- Support an already-resolved structure layer containing both cached files and delegated vanilla resources.
+- Add a shared operator-login notice hook with Minecraft permission checks in version adapters.
+
 - Add structure resource operations shared by Minecraft 1.20.1, 1.21.1, 26.1.2 and 26.2.
 - Scope structure preparation to vanilla template resource sources and release it when a server stops.
 - Keep template initialization and reload hooks inside RinLib so dependent mods share one core implementation.

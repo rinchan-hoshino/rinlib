@@ -37,6 +37,12 @@ public final class StructureResources {
         return new MultiPackResourceManager(PackType.SERVER_DATA, List.of(pack(root, id)));
     }
 
+    public static MultiPackResourceManager overlay(Path root, String id, Map<String, Resource> delegated) {
+        PackResources disk = pack(root, id);
+        PackResources prepared = delegated.isEmpty() ? disk : new StructureHybridPack(disk, delegated);
+        return new MultiPackResourceManager(PackType.SERVER_DATA, List.of(prepared));
+    }
+
     public static PackResources pack(Path root, String id) { return StructurePlatform.pack(root, id); }
 
     public static Path resourcePath(Path root, String key) {

@@ -127,7 +127,7 @@ def metadata(profile, version):
             "required": True, "minVersion": "0.8",
             "package": "dev.rinchan.rinlib.mixin.structure",
             "compatibilityLevel": "JAVA_" + str(profile["java"]),
-            "mixins": ["TemplateResourcesMixin", "ServerStopMixin"],
+            "mixins": ["TemplateResourcesMixin", "ServerStopMixin", "OperatorLoginMixin"],
             "injectors": {"defaultRequire": 1}
         }
         if profile["loader"] == "forge":

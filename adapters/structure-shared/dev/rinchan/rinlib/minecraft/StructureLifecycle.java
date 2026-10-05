@@ -36,8 +36,30 @@ public final class StructureLifecycle {
         for (Preparation preparation : preparations) preparation.close();
     }
 
+    /** Called once after a player has joined; ordinary players receive no messages. */
+    public static void onOperatorLogin(boolean operator, java.util.function.Consumer<net.minecraft.network.chat.Component> send) {
+        if (!operator) return;
+        List<Preparation> preparations;
+        synchronized (StructureLifecycle.class) { preparations = List.copyOf(ACTIVE); }
+        var notices = new java.util.LinkedHashSet<net.minecraft.network.chat.Component>();
+        for (Preparation preparation : preparations) {
+            var notice = preparation.operatorNotice();
+            if (notice != null) notices.add(notice);
+        }
+        if (notices.isEmpty()) return;
+        var combined = net.minecraft.network.chat.Component.empty();
+        boolean first = true;
+        for (var notice : notices) {
+            if (!first) combined.append("\n");
+            combined.append(notice);
+            first = false;
+        }
+        send.accept(combined);
+    }
+
     public interface Preparation extends AutoCloseable {
         ResourceManager prepare(ResourceManager resources, DataFixer fixer);
         @Override void close();
+        default net.minecraft.network.chat.Component operatorNotice() { return null; }
     }
 }
