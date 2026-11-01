@@ -1,0 +1,17 @@
+def generated = layout.buildDirectory.dir('generated/metadata')
+tasks.register('generateMetadata', Exec) {
+    inputs.file new File(rinlibRoot, 'support/profiles.json')
+    inputs.file new File(rinlibRoot, 'gradle.properties')
+    inputs.file new File(rinlibRoot, 'tools/profile_metadata.py')
+    inputs.files fileTree(new File(rinlibRoot, 'adapters')) { include '**/*.mixins.json' }
+    inputs.file new File(rinlibRoot, 'neoforge/src/main/resources/rinlib.mixins.json')
+    inputs.property 'minecraft', target.minecraft
+    inputs.property 'loader', target.loader
+    outputs.dir generated
+    commandLine 'python3', new File(rinlibRoot, 'tools/profile_metadata.py'),
+            target.minecraft, target.loader, '--output', generated.get().asFile
+    doFirst { generated.get().asFile.deleteDir() }
+}
+sourceSets.main.resources.setSrcDirs([])
+sourceSets.main.resources.srcDir(tasks.named('generateMetadata'))
+jar { from(new File(rinlibRoot, 'LICENSE')) }

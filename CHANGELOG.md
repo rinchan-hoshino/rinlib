@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0 (unreleased)
+
+- Derive 69 exact native build targets from consumer configurations; remove portable repackaging and select sources from one target table.
+- Add matching `dev.rinchan.rinlib.api` adapters for 17 data-component-era versions and 44 configured loader targets; keep deprecated compatibility entrypoints as delegates.
+- Keep mod-specific classes this round and document their owners and consumer migration edits.
+
 ## 1.2.0
 
 - Support an already-resolved structure layer containing both cached files and delegated vanilla resources.

@@ -1,3 +1,5 @@
-<img src="docs/artwork/rinlib-icon-platform.png" alt="RinLib" width="128" height="128">
+# RinLib
 
-A cross-version code library for mods made by RinChan.
+Minecraft version adapters for RinChan mods.
+
+[Targets](docs/targets.md) · [Stable API](docs/minecraft-interop.md) · [2.0 migration](docs/migration-2.0.md) · [Build](docs/development.md)

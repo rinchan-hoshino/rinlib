@@ -23,7 +23,10 @@ def run(target, output, eula, legacy_server=None):
     (instance / 'server.properties').write_text('server-ip=127.0.0.1\nserver-port=' + os.environ.get('RINLIB_PROBE_PORT', '25897') + '\nonline-mode=false\nlevel-type=minecraft:flat\ngenerate-structures=false\nview-distance=2\nsimulation-distance=2\nmax-tick-time=0\n')
     marker = instance / 'rinlib-runtime.pass'
     marker.unlink(missing_ok=True)
-    family = ('26' if mc.startswith('26.') else '1.21.1') + '-' + loader if profile['kind'] == 'full' else profile['kind']
+    if 'adapters/data-components' in profile['adapters']:
+        family = ('26' if mc.startswith('26.') else '1.21.1') + '-' + loader
+    else:
+        family = 'legacy' if 'adapters/legacy' in profile['adapters'] else 'state'
     if mc == '1.16.5':
         family = '1.16'
     wrapper = ROOT / 'gradlew'
@@ -65,7 +68,7 @@ def run(target, output, eula, legacy_server=None):
             libraries.symlink_to(legacy_server / 'libraries', target_is_directory=True)
         mods = instance / 'mods'
         mods.mkdir(exist_ok=True)
-        version = runpy.run_path(str(ROOT / 'tools/build_portable_profiles.py'))['release_version']()
+        version = runpy.run_path(str(ROOT / 'tools/profile_metadata.py'))['release_version']()
         for name in ['rinlib-forge-' + version + '+1.12.2.jar', 'rinlib-runtime-probe-1.0.0.jar']:
             shutil.copyfile(ROOT / 'build/profiles/1.12.2-forge/libs' / name, mods / name)
         command = [str(Path(env['JAVA_HOME']) / 'bin/java'), '-Xmx1G', '-jar', forge_jars[0].name, 'nogui']

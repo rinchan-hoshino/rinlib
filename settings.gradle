@@ -1,4 +1,12 @@
 pluginManagement {
+    def targets = new groovy.json.JsonSlurper().parse(file('support/profiles.json')).profiles
+    def fabric = targets.find { it.minecraft == '1.21.1' && it.loader == 'fabric' }
+    def neoforge = targets.find { it.minecraft == '1.21.1' && it.loader == 'neoforge' }
+    plugins {
+        id 'fabric-loom' version fabric.dependencies.loom
+        id 'net.fabricmc.fabric-loom-companion' version fabric.dependencies.loom
+        id 'net.neoforged.moddev' version neoforge.dependencies.moddev
+    }
     repositories {
         gradlePluginPortal()
         maven { url = 'https://maven.fabricmc.net/' }
@@ -11,8 +19,4 @@ plugins {
 }
 
 rootProject.name = 'rinlib'
-include 'portable'
-if (!providers.gradleProperty('portableOnly').isPresent()) {
-    include 'fabric'
-    include 'neoforge'
-}
+include 'common', 'fabric', 'neoforge'

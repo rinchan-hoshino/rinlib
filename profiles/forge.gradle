@@ -1,21 +1,31 @@
 buildscript {
-    if (gradle.startParameter.projectProperties['profile'] == '1.20.1') {
+    def selected = new groovy.json.JsonSlurper().parse(file('../support/profiles.json')).profiles.find {
+        it.minecraft == gradle.startParameter.projectProperties['profile'] && it.loader == 'forge'
+    }
+    if (selected.adapters.contains('adapters/structure-shared') || selected.adapters.contains('adapters/commands-modern')) {
         repositories { maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }; mavenCentral() }
-        dependencies { classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT' }
+        dependencies { classpath "org.spongepowered:mixingradle:${selected.dependencies.mixin_gradle}" }
     }
 }
-plugins { id 'net.minecraftforge.gradle' version '6.0.36' }
+plugins { id 'net.minecraftforge.gradle' }
 apply plugin: 'java-library'
 apply from: 'common.gradle'
 minecraft { mappings channel: 'official', version: target.minecraft }
-dependencies { minecraft "net.minecraftforge:forge:${target.minecraft}-${target.forge_version}" }
+dependencies { minecraft "net.minecraftforge:forge:${target.minecraft}-${target.dependencies.forge}" }
 jar.finalizedBy('reobfJar')
 
-if (target.structure_api) {
+def mixinConfigs = target.adapters.collectMany { directory ->
+    def resources = new File(rinlibRoot, directory + '/resources')
+    (resources.listFiles() ?: []).findAll { it.name.endsWith('.mixins.json') }.collect { it.name }
+}
+if (!mixinConfigs.isEmpty()) {
     apply plugin: 'org.spongepowered.mixin'
-    dependencies { annotationProcessor 'org.spongepowered:mixin:0.8.5:processor' }
-    mixin { add sourceSets.main, 'rinlib.structure.refmap.json'; config 'rinlib.structure.mixins.json' }
-    jar { manifest.attributes('MixinConfigs': 'rinlib.structure.mixins.json') }
+    dependencies { annotationProcessor "org.spongepowered:mixin:${target.dependencies.mixin}:processor" }
+    mixin {
+        add sourceSets.main, 'rinlib.structure.refmap.json'
+        mixinConfigs.each { config it }
+    }
+    jar { manifest.attributes('MixinConfigs': mixinConfigs.join(',')) }
 }
 
 // Keep a named artifact for consumers compiling or running ordinary JVM tests.

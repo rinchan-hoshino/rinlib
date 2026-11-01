@@ -1,6 +1,6 @@
 # Dedicated-server API tests
 
-These checks start isolated local Minecraft dedicated servers and run assertions after server startup. They exercise shared-map identity and removal, sticky state, and the APIs available in each profile. Full NeoForge checks also create a server-side player, apply an effect, and verify that the game-rule mixin projects and restores the real keep-inventory value across nested scopes.
+These checks start isolated local Minecraft dedicated servers and run assertions after server startup. They exercise shared-map identity and removal, sticky state, and the APIs supplied by the selected source adapters. Modern NeoForge checks also create a server-side player, apply an effect, and verify the keep-inventory projection. The 1.21.1 NeoForge probe tests the stable API's player identity, permission-level-two function source, item codec, effect lookup, synchronous string-ID function tags, exact context restoration after exceptions, and rejection of off-thread calls. Its callback functions are resources of the separate probe mod.
 
 The probe is a separate test mod. Its classes and metadata are excluded from production JARs. A successful result requires a fresh pass marker, the explicit `RINLIB_RUNTIME_PASS` log entry, no failure marker, and a successful process exit. These are dedicated-server API tests; they do not exercise connected clients or graphical rendering.
 
@@ -9,7 +9,7 @@ python3 runtime-tests/run.py --profile 1.21.1 --loader neoforge \
   --eula /path/to/an/accepted/eula.txt
 ```
 
-Supply the same `JAVA_*_HOME` variables as the build matrix. Tests bind to localhost; `RINLIB_PROBE_PORT` selects a port when running independent tests concurrently. Logs and results default to `build/runtime`.
+Use a full JDK, with `JAVA_HOME` or the matching `JAVA_8_HOME`, `JAVA_21_HOME`, `JAVA_25_HOME`. Tests bind to localhost; `RINLIB_PROBE_PORT` selects a port when running independent tests concurrently. Logs and results default to `build/runtime`.
 
 For basic readiness and clean shutdown of the default development servers:
 

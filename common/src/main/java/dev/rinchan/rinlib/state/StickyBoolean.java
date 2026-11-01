@@ -1,6 +1,7 @@
 package dev.rinchan.rinlib.state;
 
-/** A one-way boolean projection: false may become true, but true never regresses. */
+/** @deprecated Use {@code current || update} at the call site. */
+@Deprecated
 public final class StickyBoolean {
     private StickyBoolean() {
     }

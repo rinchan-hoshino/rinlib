@@ -2,17 +2,17 @@ package dev.rinchan.rinlib.minecraft;
 
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.server.permissions.LevelBasedPermissionSet;
 
-/** Player identity and operator-level function sources across Minecraft versions. */
+/** @deprecated Import {@code dev.rinchan.rinlib.api.PlayerContext} instead. */
+@Deprecated
 public final class PlayerContext {
     private PlayerContext() {}
 
     public static String name(ServerPlayer player) {
-        return player.getGameProfile().name();
+        return dev.rinchan.rinlib.api.PlayerContext.name(player);
     }
 
     public static CommandSourceStack functionSource(ServerPlayer player) {
-        return player.createCommandSourceStack().withPermission(LevelBasedPermissionSet.GAMEMASTER).withSuppressedOutput();
+        return dev.rinchan.rinlib.api.PlayerContext.functionSource(player);
     }
 }

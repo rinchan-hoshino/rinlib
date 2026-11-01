@@ -1,27 +1,33 @@
 buildscript {
+    def selected = new groovy.json.JsonSlurper().parse(file('../support/profiles.json')).profiles.find {
+        it.minecraft == gradle.startParameter.projectProperties['profile'] && it.loader == 'forge'
+    }
     repositories {
         maven { url = 'https://maven.minecraftforge.net' }
         mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath "net.minecraftforge.gradle:ForgeGradle:${selected.dependencies.forgegradle}"
     }
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 
+ext.target = new groovy.json.JsonSlurper().parse(file('../support/profiles.json')).profiles.find {
+    it.minecraft == project.property('profile') && it.loader == project.property('loader')
+}
 group = 'dev.rinchan'
 def config = new Properties()
 file('../gradle.properties').withInputStream { config.load(it) }
-version = config.mod_version.split('\\+')[0] + '+1.12.2'
-buildDir = file('../build/profiles/1.12.2-forge')
+version = config.mod_version.tokenize('+')[0] + '+' + target.minecraft
+buildDir = file("../build/profiles/${target.minecraft}-${target.loader}")
 archivesBaseName = 'rinlib-forge'
-sourceCompatibility = targetCompatibility = '1.8'
+sourceCompatibility = targetCompatibility = JavaVersion.toVersion(target.java)
 
 minecraft {
-    version = '1.12.2-14.23.5.2847'
+    version = target.minecraft + '-' + target.dependencies.forge
     runDir = 'run'
-    mappings = 'snapshot_20171003'
+    mappings = target.dependencies.mappings
     replace '@VERSION@', project.version
 }
 
@@ -33,11 +39,7 @@ processResources {
 }
 
 
-sourceSets.main.java {
-    srcDirs = ['../common/src/main/java', '../adapters/legacy']
-    include 'dev/rinchan/rinlib/state/SharedOwnerState.java',
-            'dev/rinchan/rinlib/state/StickyBoolean.java', 'dev/rinchan/rinlib/forge/**'
-}
+sourceSets.main.java.srcDirs = target.adapters.collect { file('../' + it) }
 sourceSets.main.resources.srcDir 'legacy-resources'
 jar { from '../LICENSE' }
 

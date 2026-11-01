@@ -1,0 +1,5 @@
+plugins { id 'java-library' }
+
+// Pure Java tests stay independent of Minecraft and loader setup.
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+tasks.withType(JavaCompile).configureEach { options.release = 17 }

@@ -6,6 +6,7 @@ allprojects {
                 java.srcDirs new File(base, 'common/java'), new File(base, 'neoforge/java'),
                         new File(System.getProperty('probe.checks')), new File(base, 'players-' + System.getProperty('probe.players') + '/java')
                 resources.srcDir new File(base, 'neoforge/resources')
+                resources.srcDir new File(System.getProperty('probe.checks'), 'resources')
                 compileClasspath += p.sourceSets.main.output + p.sourceSets.main.compileClasspath
                 runtimeClasspath += output + p.sourceSets.main.output + p.sourceSets.main.runtimeClasspath
             }

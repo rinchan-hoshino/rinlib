@@ -1,4 +1,20 @@
 pluginManagement {
+    def game = gradle.startParameter.projectProperties['profile']
+    def loader = gradle.startParameter.projectProperties['loader']
+    def target = new groovy.json.JsonSlurper().parse(file('../support/profiles.json')).profiles.find {
+        it.minecraft == game && it.loader == loader
+    }
+    if (target == null) throw new GradleException("Unsupported target: ${game}-${loader}")
+    if (!target.adapters.contains('adapters/legacy')) {
+        plugins {
+            if (loader == 'fabric') {
+                id 'fabric-loom' version (target.dependencies.loom ?: target.dependencies.loom_unobfuscated)
+                id 'net.fabricmc.fabric-loom' version (target.dependencies.loom ?: target.dependencies.loom_unobfuscated)
+            }
+            if (loader == 'neoforge') id 'net.neoforged.moddev' version target.dependencies.moddev
+            if (loader == 'forge') id 'net.minecraftforge.gradle' version target.dependencies.forgegradle
+        }
+    }
     repositories {
         gradlePluginPortal()
         maven { url = 'https://maven.fabricmc.net/' }
@@ -7,7 +23,10 @@ pluginManagement {
     }
 }
 rootProject.name = 'rinlib-profile'
-def profile = gradle.startParameter.projectProperties['profile']
+def game = gradle.startParameter.projectProperties['profile']
 def loader = gradle.startParameter.projectProperties['loader']
-rootProject.buildFileName = profile == '1.12.2' ? 'legacy.gradle' :
-        loader == 'fabric' && profile.startsWith('26.') ? 'fabric-modern.gradle' : "${loader}.gradle"
+def target = new groovy.json.JsonSlurper().parse(file('../support/profiles.json')).profiles.find {
+    it.minecraft == game && it.loader == loader
+}
+rootProject.buildFileName = target.adapters.contains('adapters/legacy') ? 'legacy.gradle' :
+        loader == 'fabric' && target.dependencies.containsKey('loom_unobfuscated') ? 'fabric-modern.gradle' : "${loader}.gradle"

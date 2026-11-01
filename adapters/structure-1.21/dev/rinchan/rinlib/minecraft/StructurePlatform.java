@@ -10,7 +10,6 @@ import net.minecraft.nbt.NbtAccounter;
 import net.minecraft.nbt.NbtIo;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.packs.PackLocationInfo;
-import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.PathPackResources;
 import net.minecraft.server.packs.repository.PackSource;
 
@@ -26,7 +25,6 @@ final class StructurePlatform {
         return new PathPackResources(new PackLocationInfo(id, Component.literal(id), PackSource.BUILT_IN, Optional.empty()), root);
     }
     static String packMetadata() {
-        return "{\"pack\":{\"description\":\"Prepared structure resources\",\"pack_format\":"
-            + SharedConstants.getCurrentVersion().getPackVersion(PackType.SERVER_DATA) + "}}\n";
+        return dev.rinchan.rinlib.api.PackFormats.serverDataMetadata("Prepared structure resources");
     }
 }

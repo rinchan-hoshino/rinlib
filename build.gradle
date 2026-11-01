@@ -1,9 +1,10 @@
 plugins {
-    id 'fabric-loom' version '1.14.7' apply false
-    id 'net.fabricmc.fabric-loom-companion' version '1.14.7'
-    id 'net.neoforged.moddev' version '2.0.141' apply false
+    id 'fabric-loom' apply false
+    id 'net.fabricmc.fabric-loom-companion'
+    id 'net.neoforged.moddev' apply false
 }
 
+ext.rinlibTargets = new groovy.json.JsonSlurper().parse(file('support/profiles.json')).profiles
 subprojects {
     group = rootProject.mod_group_id
     version = rootProject.mod_version
@@ -21,7 +22,7 @@ subprojects {
             testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
         }
         tasks.withType(Test).configureEach { useJUnitPlatform() }
-        java.toolchain.languageVersion = JavaLanguageVersion.of(rootProject.java_version as int)
+        java.toolchain.languageVersion = JavaLanguageVersion.of(21)
         tasks.withType(JavaCompile).configureEach {
             options.encoding = 'UTF-8'
         }

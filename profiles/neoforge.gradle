@@ -1,10 +1,13 @@
-plugins { id 'net.neoforged.moddev' version '2.0.141' }
+plugins { id 'net.neoforged.moddev' }
 apply from: 'common.gradle'
 neoForge {
-    version = target.neo_version
+    version = target.dependencies.neoforge
     mods { rinlib { sourceSet sourceSets.main } }
-    unitTest {
-        enable()
-        testedMod = mods.rinlib
+    // Older NeoForge has no JUnit run type; only these adapters need MC-bound tests.
+    if (target.adapters.contains('adapters/structure-shared')) {
+        unitTest {
+            enable()
+            testedMod = mods.rinlib
+        }
     }
 }

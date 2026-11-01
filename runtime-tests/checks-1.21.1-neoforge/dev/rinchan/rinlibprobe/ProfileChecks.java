@@ -35,5 +35,6 @@ public final class ProfileChecks {
         require(!dev.rinchan.rinlib.minecraft.MobEffectState.add(player, "minecraft:missing_effect", 40, 0), "unknown effect rejected");
         require(dev.rinchan.rinlib.minecraft.MobEffectState.add(player, "minecraft:speed", 40, 1), "real player receives effect");
         require(player.getActiveEffects().stream().anyMatch(effect -> effect.getDuration() == 40 && effect.getAmplifier() == 1), "effect duration and amplifier retained");
+        ApiChecks.run(server, player);
     }
 }
