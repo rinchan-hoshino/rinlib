@@ -11,6 +11,9 @@ base {
 ext.rinlibRoot = rootProject.projectDir
 ext.target = rootProject.rinlibTargets.find { it.minecraft == rootProject.minecraft_version && it.loader == 'neoforge' }
 sourceSets.main.java.setSrcDirs(target.adapters.collect { rootProject.file(it) })
+(target.api ?: [:]).each { className, interval ->
+    sourceSets.main.java.srcDir new File(rinlibRoot, "adapters/api/${className}/${interval}")
+}
 sourceSets.test.java.srcDir rootProject.file('common/src/test/java')
 sourceSets.test.java.srcDir rootProject.file('structure-tests')
 sourceSets.test.java.srcDir rootProject.file('api-tests')

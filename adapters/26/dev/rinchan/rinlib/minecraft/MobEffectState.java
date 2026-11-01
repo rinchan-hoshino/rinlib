@@ -2,8 +2,8 @@ package dev.rinchan.rinlib.minecraft;
 
 import net.minecraft.server.level.ServerPlayer;
 
-/** @deprecated Import {@code dev.rinchan.rinlib.api.MobEffectState} instead. */
-@Deprecated
+/** @deprecated 改用 dev.rinchan.rinlib.api.MobEffectState */
+@Deprecated(forRemoval = true)
 public final class MobEffectState {
     private MobEffectState() {}
 

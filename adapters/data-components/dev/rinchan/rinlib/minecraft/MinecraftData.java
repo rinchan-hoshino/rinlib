@@ -8,8 +8,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 
-/** @deprecated Import {@code dev.rinchan.rinlib.api.MinecraftData} instead. */
-@Deprecated
+/** @deprecated 改用 dev.rinchan.rinlib.api.MinecraftData */
+@Deprecated(forRemoval = true)
 public final class MinecraftData {
     private final dev.rinchan.rinlib.api.MinecraftData delegate;
 

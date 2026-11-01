@@ -1,3 +1,4 @@
+import json
 import pathlib
 import subprocess
 import tempfile
@@ -54,13 +55,17 @@ class AdapterApiTest(unittest.TestCase):
         result = self.check()
         self.assertEqual(0, result.returncode, result.stderr)
 
-    def test_data_component_era_targets_share_the_same_public_contract(self):
-        versions = ['1.20.6', '1.21', '1.21.1', '1.21.2', '1.21.3', '1.21.4',
-                    '1.21.5', '1.21.6', '1.21.7', '1.21.8', '1.21.9', '1.21.10',
-                    '1.21.11', '26.1', '26.1.1', '26.1.2', '26.2']
-        result = self.check(*(ROOT / 'adapters' / version / 'dev/rinchan/rinlib/api'
-                              for version in versions))
-        self.assertEqual(0, result.returncode, result.stderr)
+    def test_each_class_shares_the_same_public_contract_across_intervals(self):
+        profiles = json.loads((ROOT / 'support/profiles.json').read_text())['profiles']
+        classes = {}
+        for profile in profiles:
+            for name, interval in profile.get('api', {}).items():
+                classes.setdefault(name, set()).add(ROOT / 'adapters/api' / name / interval)
+        self.assertEqual(6, len(classes))
+        for name, directories in classes.items():
+            with self.subTest(name=name):
+                result = self.check(*sorted(directories))
+                self.assertEqual(0, result.returncode, result.stderr)
 
 
 if __name__ == '__main__':

@@ -38,24 +38,30 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('directories', nargs='*', type=Path)
     args = parser.parse_args()
-    directories = args.directories
-    if not directories:
+    groups = [args.directories] if args.directories else []
+    if not groups:
         profiles = json.loads((ROOT / 'support/profiles.json').read_text())['profiles']
-        directories = sorted({ROOT / directory / 'dev/rinchan/rinlib/api'
-                              for profile in profiles for directory in profile.get('adapters', [])
-                              if directory == 'adapters/' + profile['minecraft']})
-    if not directories:
+        classes = {}
+        for profile in profiles:
+            for name, interval in profile.get('api', {}).items():
+                classes.setdefault(name, set()).add(ROOT / 'adapters/api' / name / interval)
+        groups = [sorted(directories) for directories in classes.values()]
+    if not groups:
         parser.exit(1, 'No stable API adapters configured\n')
+    declarations = 0
     try:
-        baseline = public_api(directories[0])
-        for directory in directories[1:]:
-            actual = public_api(directory)
-            if actual != baseline:
-                parser.exit(1, '\n'.join(difflib.unified_diff(baseline, actual,
-                            fromfile=str(directories[0]), tofile=str(directory))) + '\n')
+        for directories in groups:
+            baseline = public_api(directories[0])
+            declarations += len(baseline)
+            for directory in directories[1:]:
+                actual = public_api(directory)
+                if actual != baseline:
+                    parser.exit(1, '\n'.join(difflib.unified_diff(baseline, actual,
+                                fromfile=str(directories[0]), tofile=str(directory))) + '\n')
     except ValueError as error:
         parser.exit(1, str(error) + '\n')
-    print(f'{len(directories)} adapter directories agree on {len(baseline)} public declarations')
+    print(f'{sum(map(len, groups))} adapter directories in {len(groups)} groups agree on '
+          f'{declarations} public declarations')
 
 
 if __name__ == '__main__':

@@ -15,6 +15,9 @@ base {
 ext.rinlibRoot = rootProject.projectDir
 ext.target = rootProject.rinlibTargets.find { it.minecraft == root.minecraft_version && it.loader == 'fabric' }
 sourceSets.main.java.setSrcDirs(target.adapters.collect { root.file(it) })
+(target.api ?: [:]).each { className, interval ->
+    sourceSets.main.java.srcDir new File(rinlibRoot, "adapters/api/${className}/${interval}")
+}
 sourceSets.test.java.srcDir root.file('common/src/test/java')
 java.toolchain.languageVersion = JavaLanguageVersion.of(target.java as int)
 apply from: root.file('profiles/metadata.gradle')

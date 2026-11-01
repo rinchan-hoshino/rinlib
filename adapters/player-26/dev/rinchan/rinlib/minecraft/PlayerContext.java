@@ -3,8 +3,8 @@ package dev.rinchan.rinlib.minecraft;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.server.level.ServerPlayer;
 
-/** @deprecated Import {@code dev.rinchan.rinlib.api.PlayerContext} instead. */
-@Deprecated
+/** @deprecated 改用 dev.rinchan.rinlib.api.PlayerContext */
+@Deprecated(forRemoval = true)
 public final class PlayerContext {
     private PlayerContext() {}
 

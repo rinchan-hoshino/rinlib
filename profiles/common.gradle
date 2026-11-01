@@ -28,6 +28,9 @@ tasks.withType(AbstractArchiveTask).configureEach {
     reproducibleFileOrder = true
 }
 sourceSets.main.java.setSrcDirs(target.adapters.collect { new File(rinlibRoot, it) })
+(target.api ?: [:]).each { className, interval ->
+    sourceSets.main.java.srcDir new File(rinlibRoot, "adapters/api/${className}/${interval}")
+}
 if (target.adapters.contains('adapters/structure-shared')) {
     sourceSets.test.java.srcDir new File(rinlibRoot, 'structure-tests')
 }

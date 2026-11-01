@@ -3,8 +3,8 @@ package dev.rinchan.rinlib.minecraft;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 
-/** @deprecated Import {@code dev.rinchan.rinlib.api.ItemProperties} instead. */
-@Deprecated
+/** @deprecated 改用 dev.rinchan.rinlib.api.ItemProperties */
+@Deprecated(forRemoval = true)
 public final class ItemProperties {
     private ItemProperties() {}
 

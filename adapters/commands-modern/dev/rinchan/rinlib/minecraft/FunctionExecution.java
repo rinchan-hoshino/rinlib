@@ -3,8 +3,8 @@ package dev.rinchan.rinlib.minecraft;
 import java.util.function.Supplier;
 import net.minecraft.server.MinecraftServer;
 
-/** @deprecated Import {@code dev.rinchan.rinlib.api.FunctionExecution} instead. */
-@Deprecated
+/** @deprecated 改用 dev.rinchan.rinlib.api.FunctionExecution */
+@Deprecated(forRemoval = true)
 public final class FunctionExecution {
     private FunctionExecution() {}
 
