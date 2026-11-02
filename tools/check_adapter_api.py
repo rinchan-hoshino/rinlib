@@ -12,12 +12,17 @@ ROOT = Path(__file__).resolve().parents[1]
 def public_api(directory):
     result = []
     sources = sorted(directory.rglob('*.java'))
+    if directory.parent.parent == ROOT / 'adapters/api':
+        sources = [path for path in sources if path.name == directory.parent.name + '.java']
+        common = directory.parent / 'all'
+        if not sources and directory.name != 'all':
+            sources = sorted(common.rglob(directory.parent.name + '.java'))
     if not sources:
         raise ValueError(f'No API sources: {directory}')
     for path in sources:
         source = re.sub(r'/\*.*?\*/|//[^\n]*', '', path.read_text(), flags=re.S)
         package = re.search(r'\bpackage\s+([\w.]+)\s*;', source)
-        if package is None or package.group(1) != 'dev.rinchan.rinlib.api':
+        if package is None or package.group(1) not in ('dev.rinchan.rinlib.api', 'dev.rinchan.rinlib.v2', 'dev.rinchan.rinlib.v2.net'):
             raise ValueError(f'{path}: expected package dev.rinchan.rinlib.api')
         imports = dict((name.rsplit('.', 1)[-1], name) for name in
                        re.findall(r'\bimport\s+([\w.]+)\s*;', source))

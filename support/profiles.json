@@ -160,8 +160,8 @@
     {
       "minecraft": "1.21.1", "loader": "fabric", "java": 21,
       "dependencies": {"fabric_loader": "0.19.2", "loom": "1.14.7"},
-      "adapters": ["common/src/main/java", "adapters/shared", "fabric/src/main/java", "adapters/commands-modern", "adapters/data-components", "adapters/player-1.21", "adapters/item-1.21", "adapters/structure-shared", "adapters/structure-1.21", "adapters/structure-legacy-hooks"],
-      "api": {"MinecraftData": "all", "FunctionExecution": "1.21-1.21.10", "ItemProperties": "1.21-1.21.1", "MobEffectState": "1.20.6-1.21.1", "PackFormats": "1.20.6-1.21.5", "PlayerContext": "1.20.6-1.21.8"}
+      "adapters": ["common/src/main/java", "adapters/shared", "fabric/src/main/java", "adapters/commands-modern", "adapters/data-components", "adapters/player-1.21", "adapters/item-1.21", "adapters/structure-shared", "adapters/structure-1.21", "adapters/structure-legacy-hooks", "fabric/src/v2/java", "fabric/src/v2/1.21-1.21.1/java"],
+      "api": {"MinecraftData": "all", "FunctionExecution": "1.21-1.21.10", "ItemProperties": "1.21-1.21.1", "MobEffectState": "1.20.6-1.21.1", "PackFormats": "1.20.6-1.21.5", "PlayerContext": "1.20.6-1.21.8", "Items": "1.21-1.21.1", "PlayerData": "1.21-1.21.1", "ItemEvents": "all", "RepairEvents": "1.21-1.21.1", "ClientEvents": "1.21-1.21.1", "PlayerEvents": "all", "Rin": "all", "RinMod": "all", "Ids": "1.21-1.21.1", "GameVersion": "1.21-1.21.1", "Nbt": "1.21-1.21.1", "PresencePayload": "1.21-1.21.1"}
     },
     {
       "minecraft": "1.21.1", "loader": "forge", "java": 21,
@@ -172,8 +172,8 @@
     {
       "minecraft": "1.21.1", "loader": "neoforge", "java": 21,
       "dependencies": {"neoforge": "21.1.228", "moddev": "2.0.141"},
-      "adapters": ["common/src/main/java", "adapters/shared", "neoforge/src/main/java", "adapters/commands-modern", "adapters/data-components", "adapters/player-1.21", "adapters/item-1.21", "adapters/compat-1.21", "adapters/structure-shared", "adapters/structure-1.21", "adapters/structure-legacy-hooks"],
-      "api": {"MinecraftData": "all", "FunctionExecution": "1.21-1.21.10", "ItemProperties": "1.21-1.21.1", "MobEffectState": "1.20.6-1.21.1", "PackFormats": "1.20.6-1.21.5", "PlayerContext": "1.20.6-1.21.8"}
+      "adapters": ["common/src/main/java", "adapters/shared", "neoforge/src/main/java", "adapters/commands-modern", "adapters/data-components", "adapters/player-1.21", "adapters/item-1.21", "adapters/compat-1.21", "adapters/structure-shared", "adapters/structure-1.21", "adapters/structure-legacy-hooks", "neoforge/src/v2/java", "neoforge/src/v2/1.21-1.21.1/java"],
+      "api": {"MinecraftData": "all", "FunctionExecution": "1.21-1.21.10", "ItemProperties": "1.21-1.21.1", "MobEffectState": "1.20.6-1.21.1", "PackFormats": "1.20.6-1.21.5", "PlayerContext": "1.20.6-1.21.8", "Items": "1.21-1.21.1", "PlayerData": "1.21-1.21.1", "ItemEvents": "all", "RepairEvents": "1.21-1.21.1", "ClientEvents": "1.21-1.21.1", "PlayerEvents": "all", "Rin": "all", "RinMod": "all", "Ids": "1.21-1.21.1", "GameVersion": "1.21-1.21.1", "Nbt": "1.21-1.21.1", "PresencePayload": "1.21-1.21.1"}
     },
     {
       "minecraft": "1.21.10", "loader": "fabric", "java": 21,
@@ -369,26 +369,26 @@
     {
       "minecraft": "26.1.2", "loader": "fabric", "java": 25,
       "dependencies": {"fabric_loader": "0.19.2", "loom_unobfuscated": "1.15.5"},
-      "adapters": ["common/src/main/java", "adapters/shared", "fabric/src/main/java", "adapters/commands-modern", "adapters/data-components", "adapters/player-26", "adapters/item-26", "adapters/structure-shared", "adapters/structure-26"],
-      "api": {"MinecraftData": "all", "FunctionExecution": "1.21.11+", "ItemProperties": "1.21.11+", "MobEffectState": "1.21.11+", "PackFormats": "1.21.9+", "PlayerContext": "1.21.11+"}
+      "adapters": ["common/src/main/java", "adapters/shared", "fabric/src/main/java", "adapters/commands-modern", "adapters/data-components", "adapters/player-26", "adapters/item-26", "adapters/structure-shared", "adapters/structure-26", "fabric/src/v2/java", "fabric/src/v2/26+/java"],
+      "api": {"MinecraftData": "all", "FunctionExecution": "1.21.11+", "ItemProperties": "1.21.11+", "MobEffectState": "1.21.11+", "PackFormats": "1.21.9+", "PlayerContext": "1.21.11+", "Items": "26+", "PlayerData": "26+", "ItemEvents": "all", "RepairEvents": "26+", "ClientEvents": "26+", "PlayerEvents": "all", "Rin": "all", "RinMod": "all", "Ids": "26+", "GameVersion": "26+", "Nbt": "26+", "PresencePayload": "26+"}
     },
     {
       "minecraft": "26.1.2", "loader": "neoforge", "java": 25,
       "dependencies": {"neoforge": "26.1.2.99", "moddev": "2.0.141"},
-      "adapters": ["common/src/main/java", "adapters/shared", "neoforge/src/main/java", "adapters/commands-modern", "adapters/data-components", "adapters/player-26", "adapters/item-26", "adapters/26", "adapters/structure-shared", "adapters/structure-26"],
-      "api": {"MinecraftData": "all", "FunctionExecution": "1.21.11+", "ItemProperties": "1.21.11+", "MobEffectState": "1.21.11+", "PackFormats": "1.21.9+", "PlayerContext": "1.21.11+"}
+      "adapters": ["common/src/main/java", "adapters/shared", "neoforge/src/main/java", "adapters/commands-modern", "adapters/data-components", "adapters/player-26", "adapters/item-26", "adapters/26", "adapters/structure-shared", "adapters/structure-26", "neoforge/src/v2/java", "neoforge/src/v2/26+/java"],
+      "api": {"MinecraftData": "all", "FunctionExecution": "1.21.11+", "ItemProperties": "1.21.11+", "MobEffectState": "1.21.11+", "PackFormats": "1.21.9+", "PlayerContext": "1.21.11+", "Items": "26+", "PlayerData": "26+", "ItemEvents": "all", "RepairEvents": "26+", "ClientEvents": "26+", "PlayerEvents": "all", "Rin": "all", "RinMod": "all", "Ids": "26+", "GameVersion": "26+", "Nbt": "26+", "PresencePayload": "26+"}
     },
     {
       "minecraft": "26.2", "loader": "fabric", "java": 25,
       "dependencies": {"fabric_loader": "0.19.2", "loom_unobfuscated": "1.15.5"},
-      "adapters": ["common/src/main/java", "adapters/shared", "fabric/src/main/java", "adapters/commands-modern", "adapters/data-components", "adapters/player-26", "adapters/item-26", "adapters/structure-shared", "adapters/structure-26"],
-      "api": {"MinecraftData": "all", "FunctionExecution": "1.21.11+", "ItemProperties": "1.21.11+", "MobEffectState": "1.21.11+", "PackFormats": "1.21.9+", "PlayerContext": "1.21.11+"}
+      "adapters": ["common/src/main/java", "adapters/shared", "fabric/src/main/java", "adapters/commands-modern", "adapters/data-components", "adapters/player-26", "adapters/item-26", "adapters/structure-shared", "adapters/structure-26", "fabric/src/v2/java", "fabric/src/v2/26+/java"],
+      "api": {"MinecraftData": "all", "FunctionExecution": "1.21.11+", "ItemProperties": "1.21.11+", "MobEffectState": "1.21.11+", "PackFormats": "1.21.9+", "PlayerContext": "1.21.11+", "Items": "26+", "PlayerData": "26+", "ItemEvents": "all", "RepairEvents": "26+", "ClientEvents": "26+", "PlayerEvents": "all", "Rin": "all", "RinMod": "all", "Ids": "26+", "GameVersion": "26+", "Nbt": "26+", "PresencePayload": "26+"}
     },
     {
       "minecraft": "26.2", "loader": "neoforge", "java": 25,
       "dependencies": {"neoforge": "26.2.0.69", "moddev": "2.0.141"},
-      "adapters": ["common/src/main/java", "adapters/shared", "neoforge/src/main/java", "adapters/commands-modern", "adapters/data-components", "adapters/player-26", "adapters/item-26", "adapters/26", "adapters/structure-shared", "adapters/structure-26"],
-      "api": {"MinecraftData": "all", "FunctionExecution": "1.21.11+", "ItemProperties": "1.21.11+", "MobEffectState": "1.21.11+", "PackFormats": "1.21.9+", "PlayerContext": "1.21.11+"}
+      "adapters": ["common/src/main/java", "adapters/shared", "neoforge/src/main/java", "adapters/commands-modern", "adapters/data-components", "adapters/player-26", "adapters/item-26", "adapters/26", "adapters/structure-shared", "adapters/structure-26", "neoforge/src/v2/java", "neoforge/src/v2/26+/java"],
+      "api": {"MinecraftData": "all", "FunctionExecution": "1.21.11+", "ItemProperties": "1.21.11+", "MobEffectState": "1.21.11+", "PackFormats": "1.21.9+", "PlayerContext": "1.21.11+", "Items": "26+", "PlayerData": "26+", "ItemEvents": "all", "RepairEvents": "26+", "ClientEvents": "26+", "PlayerEvents": "all", "Rin": "all", "RinMod": "all", "Ids": "26+", "GameVersion": "26+", "Nbt": "26+", "PresencePayload": "26+"}
     }
   ]
 }

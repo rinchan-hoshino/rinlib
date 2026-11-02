@@ -17,7 +17,7 @@ class ProfileMetadataTest(unittest.TestCase):
             output = Path(temporary)
             self.generate('1.21.1', 'fabric', output)
             metadata = json.loads((output / 'fabric.mod.json').read_text())
-            self.assertEqual(['rinlib.commands.mixins.json', 'rinlib.structure.mixins.json'], metadata['mixins'])
+            self.assertEqual(['rinlib.commands.mixins.json', 'rinlib.structure.mixins.json', 'rinlib.mixins.json'], metadata['mixins'])
             self.assertEqual(['1.21.1'], metadata['depends']['minecraft'])
             for name in metadata['mixins']:
                 self.assertTrue((output / name).is_file())

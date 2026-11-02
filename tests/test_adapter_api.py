@@ -61,7 +61,7 @@ class AdapterApiTest(unittest.TestCase):
         for profile in profiles:
             for name, interval in profile.get('api', {}).items():
                 classes.setdefault(name, set()).add(ROOT / 'adapters/api' / name / interval)
-        self.assertEqual(6, len(classes))
+        self.assertEqual(18, len(classes))
         for name, directories in classes.items():
             with self.subTest(name=name):
                 result = self.check(*sorted(directories))

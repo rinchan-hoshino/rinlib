@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.rinchan.rinlib.v2.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "rinlib$StackContentsMixin",
+    "rinlib$PlayerDataMixin",
+    "rinlib$ItemDamageMixin",
+    "rinlib$CraftingRepairMixin",
+    "rinlib$AnvilMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "client.rinlib$TooltipMixin",
+    "client.rinlib$ItemRendererMixin",
+    "client.rinlib$SlotOverlayMixin"
+  ]
+}

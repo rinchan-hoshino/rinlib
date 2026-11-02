@@ -25,10 +25,21 @@ def metadata(target):
             if loader == 'forge':
                 config['refmap'] = 'rinlib.structure.refmap.json'
             configs[path.name] = config
-    if 'adapters/compat-1.21' in adapters or 'adapters/26' in adapters:
-        config = json.loads((ROOT / 'neoforge/src/main/resources/rinlib.mixins.json').read_text())
+    if target.get('api', {}).get('Rin'):
+        config = json.loads((ROOT / loader / 'src/main/resources/rinlib.mixins.json').read_text())
         config['compatibilityLevel'] = 'JAVA_' + str(target['java'])
         configs['rinlib.mixins.json'] = config
+    elif 'adapters/compat-1.21' in adapters or 'adapters/26' in adapters:
+        config = json.loads((ROOT / 'neoforge/src/main/resources/rinlib.mixins.json').read_text())
+        config = dict(config, package='dev.rinchan.rinlib.mixin', mixins=['GameRulesMixin'])
+        config.pop('client', None)
+        config['compatibilityLevel'] = 'JAVA_' + str(target['java'])
+        configs['rinlib.mixins.json'] = config
+    # Mixin reserves its package: keep the legacy GameRules hook outside the public v2 API namespace.
+    if target.get('api', {}).get('Rin') and loader == 'neoforge':
+        configs['rinlib.gamerules.mixins.json'] = dict(required=True, minVersion='0.8',
+            **{'package': 'dev.rinchan.rinlib.mixin'}, compatibilityLevel='JAVA_' + str(target['java']),
+            mixins=['GameRulesMixin'], injectors=dict(defaultRequire=1))
     entries = {name: json.dumps(value, indent=2) + '\n' for name, value in configs.items()}
     version = release_version() + '+' + target['minecraft']
     if loader == 'fabric':
@@ -42,6 +53,10 @@ def metadata(target):
                     entrypoints=dict(main=['dev.rinchan.rinlib.fabric.RinLibFabric']),
                     depends=dict(fabricloader='>=' + target['dependencies']['fabric_loader'],
                                  minecraft=[game], java='>=' + str(target['java'])))
+        if target.get('api', {}).get('Rin'):
+            data['entrypoints']['client'] = ['dev.rinchan.rinlib.v2.RinFabricClient']
+            for module in ['fabric-api-base', 'fabric-entity-events-v1', 'fabric-events-interaction-v0', 'fabric-lifecycle-events-v1', 'fabric-networking-api-v1']:
+                data['depends'][module] = '*'
         if configs:
             data['mixins'] = list(configs)
         entries['fabric.mod.json'] = json.dumps(data, indent=2) + '\n'

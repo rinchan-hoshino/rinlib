@@ -4,7 +4,7 @@ tasks.register('generateMetadata', Exec) {
     inputs.file new File(rinlibRoot, 'gradle.properties')
     inputs.file new File(rinlibRoot, 'tools/profile_metadata.py')
     inputs.files fileTree(new File(rinlibRoot, 'adapters')) { include '**/*.mixins.json' }
-    inputs.file new File(rinlibRoot, 'neoforge/src/main/resources/rinlib.mixins.json')
+    inputs.file new File(rinlibRoot, target.loader + '/src/main/resources/rinlib.mixins.json')
     inputs.property 'minecraft', target.minecraft
     inputs.property 'loader', target.loader
     outputs.dir generated

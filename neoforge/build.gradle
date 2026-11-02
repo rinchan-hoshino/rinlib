@@ -13,6 +13,7 @@ ext.target = rootProject.rinlibTargets.find { it.minecraft == rootProject.minecr
 sourceSets.main.java.setSrcDirs(target.adapters.collect { rootProject.file(it) })
 (target.api ?: [:]).each { className, interval ->
     sourceSets.main.java.srcDir new File(rinlibRoot, "adapters/api/${className}/${interval}")
+    if (interval != "all") sourceSets.main.java.srcDir new File(rinlibRoot, "adapters/api/${className}/all")
 }
 sourceSets.test.java.srcDir rootProject.file('common/src/test/java')
 sourceSets.test.java.srcDir rootProject.file('structure-tests')

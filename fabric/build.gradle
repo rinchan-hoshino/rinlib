@@ -17,12 +17,20 @@ ext.target = rootProject.rinlibTargets.find { it.minecraft == root.minecraft_ver
 sourceSets.main.java.setSrcDirs(target.adapters.collect { root.file(it) })
 (target.api ?: [:]).each { className, interval ->
     sourceSets.main.java.srcDir new File(rinlibRoot, "adapters/api/${className}/${interval}")
+    if (interval != "all") sourceSets.main.java.srcDir new File(rinlibRoot, "adapters/api/${className}/all")
 }
 sourceSets.test.java.srcDir root.file('common/src/test/java')
 java.toolchain.languageVersion = JavaLanguageVersion.of(target.java as int)
 apply from: root.file('profiles/metadata.gradle')
 
 dependencies {
+    if (target.api?.containsKey('Rin')) {
+        def apiVersions = ['1.21.1': '0.116.12+1.21.1', '26.1.2': '0.155.2+26.1.2', '26.2': '0.158.0+26.2']
+        modImplementation "net.fabricmc.fabric-api:fabric-api:${apiVersions[target.minecraft]}"
+        ['fabric-api-base', 'fabric-entity-events-v1', 'fabric-events-interaction-v0', 'fabric-lifecycle-events-v1', 'fabric-networking-api-v1'].each {
+            include fabricApi.module(it, apiVersions[target.minecraft])
+        }
+    }
     minecraft "com.mojang:minecraft:${target.minecraft}"
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${target.dependencies.fabric_loader}"
