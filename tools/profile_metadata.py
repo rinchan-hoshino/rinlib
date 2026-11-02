@@ -55,7 +55,7 @@ def metadata(target):
                                  minecraft=[game], java='>=' + str(target['java'])))
         if target.get('api', {}).get('Rin'):
             data['entrypoints']['client'] = ['dev.rinchan.rinlib.v2.RinFabricClient']
-            for module in ['fabric-api-base', 'fabric-entity-events-v1', 'fabric-events-interaction-v0', 'fabric-lifecycle-events-v1', 'fabric-networking-api-v1']:
+            for module in ['fabric-api-base', 'fabric-entity-events-v1', 'fabric-events-interaction-v0', 'fabric-lifecycle-events-v1', 'fabric-networking-api-v1', 'fabric-resource-loader-v0'] + (['fabric-resource-loader-v1'] if target['minecraft'].startswith('26.') else []):
                 data['depends'][module] = '*'
         if configs:
             data['mixins'] = list(configs)
