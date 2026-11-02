@@ -36,3 +36,7 @@ if (target.adapters.contains('adapters/structure-shared')) {
     sourceSets.test.java.srcDir new File(rinlibRoot, 'structure-tests')
 }
 apply from: 'metadata.gradle'
+
+if (target.api?.containsKey('PresencePayload')) {
+    sourceSets.test.java.srcDir new File(rinlibRoot, 'api-tests/dev/rinchan/rinlib/v2/net')
+}

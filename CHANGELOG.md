@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1
+
+- Fix: Fabric clients were kicked on join when a mod required the client side (presence payload equality)
+
 ## 2.0.0 (unreleased)
 
 - Derive 69 exact native build targets from consumer configurations; remove portable repackaging and select sources from one target table.

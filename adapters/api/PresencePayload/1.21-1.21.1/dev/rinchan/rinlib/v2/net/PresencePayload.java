@@ -14,4 +14,8 @@ public final class PresencePayload implements CustomPacketPayload {
     }
     public static PresencePayload of(Type<PresencePayload> type) { return new PresencePayload(type); }
     @Override public Type<PresencePayload> type() { return type; }
+    @Override public boolean equals(Object other) {
+        return other instanceof PresencePayload payload && type().id().equals(payload.type().id());
+    }
+    @Override public int hashCode() { return type().id().hashCode(); }
 }
