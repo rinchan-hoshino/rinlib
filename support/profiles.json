@@ -129,7 +129,7 @@
     },
     {
       "minecraft": "1.20.6", "loader": "forge", "java": 21,
-      "dependencies": {"forge": "50.0.22", "forgegradle": "6.0.36", "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
+      "dependencies": {"forge": "50.0.22", "forgegradle": "6.0.54", "reobf": false, "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
       "adapters": ["common/src/main/java", "adapters/shared", "adapters/forge", "adapters/commands-modern"],
       "api": {"MinecraftData": "all", "FunctionExecution": "1.20.6", "ItemProperties": "1.20.6", "MobEffectState": "1.20.6-1.21.1", "PackFormats": "1.20.6-1.21.5", "PlayerContext": "1.20.6-1.21.8"}
     },
@@ -147,7 +147,7 @@
     },
     {
       "minecraft": "1.21", "loader": "forge", "java": 21,
-      "dependencies": {"forge": "51.0.0", "forgegradle": "6.0.36", "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
+      "dependencies": {"forge": "51.0.0", "forgegradle": "6.0.54", "reobf": false, "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
       "adapters": ["common/src/main/java", "adapters/shared", "adapters/forge", "adapters/commands-modern"],
       "api": {"MinecraftData": "all", "FunctionExecution": "1.21-1.21.10", "ItemProperties": "1.21-1.21.1", "MobEffectState": "1.20.6-1.21.1", "PackFormats": "1.20.6-1.21.5", "PlayerContext": "1.20.6-1.21.8"}
     },
@@ -165,7 +165,7 @@
     },
     {
       "minecraft": "1.21.1", "loader": "forge", "java": 21,
-      "dependencies": {"forge": "52.0.2", "forgegradle": "6.0.36", "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
+      "dependencies": {"forge": "52.0.2", "forgegradle": "6.0.54", "reobf": false, "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
       "adapters": ["common/src/main/java", "adapters/shared", "adapters/forge", "adapters/commands-modern", "adapters/data-components", "adapters/player-1.21", "adapters/item-1.21"],
       "api": {"MinecraftData": "all", "FunctionExecution": "1.21-1.21.10", "ItemProperties": "1.21-1.21.1", "MobEffectState": "1.20.6-1.21.1", "PackFormats": "1.20.6-1.21.5", "PlayerContext": "1.20.6-1.21.8"}
     },
@@ -183,7 +183,7 @@
     },
     {
       "minecraft": "1.21.10", "loader": "forge", "java": 21,
-      "dependencies": {"forge": "60.0.15", "forgegradle": "6.0.36", "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
+      "dependencies": {"forge": "60.0.15", "forgegradle": "6.0.54", "reobf": false, "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
       "adapters": ["common/src/main/java", "adapters/shared", "adapters/forge", "adapters/commands-modern"],
       "api": {"MinecraftData": "all", "FunctionExecution": "1.21-1.21.10", "ItemProperties": "1.21.2-1.21.10", "MobEffectState": "1.21.2-1.21.10", "PackFormats": "1.21.9+", "PlayerContext": "1.21.9-1.21.10"}
     },
@@ -201,7 +201,7 @@
     },
     {
       "minecraft": "1.21.11", "loader": "forge", "java": 21,
-      "dependencies": {"forge": "61.0.3", "forgegradle": "6.0.36", "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
+      "dependencies": {"forge": "61.0.3", "forgegradle": "6.0.54", "reobf": false, "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
       "adapters": ["common/src/main/java", "adapters/shared", "adapters/forge", "adapters/commands-modern"],
       "api": {"MinecraftData": "all", "FunctionExecution": "1.21.11+", "ItemProperties": "1.21.11+", "MobEffectState": "1.21.11+", "PackFormats": "1.21.9+", "PlayerContext": "1.21.11+"}
     },
@@ -243,7 +243,7 @@
     },
     {
       "minecraft": "1.21.4", "loader": "forge", "java": 21,
-      "dependencies": {"forge": "54.0.16", "forgegradle": "6.0.36", "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
+      "dependencies": {"forge": "54.0.16", "forgegradle": "6.0.54", "reobf": false, "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
       "adapters": ["common/src/main/java", "adapters/shared", "adapters/forge", "adapters/commands-modern"],
       "api": {"MinecraftData": "all", "FunctionExecution": "1.21-1.21.10", "ItemProperties": "1.21.2-1.21.10", "MobEffectState": "1.21.2-1.21.10", "PackFormats": "1.20.6-1.21.5", "PlayerContext": "1.20.6-1.21.8"}
     },
@@ -261,7 +261,7 @@
     },
     {
       "minecraft": "1.21.5", "loader": "forge", "java": 21,
-      "dependencies": {"forge": "55.0.3", "forgegradle": "6.0.36", "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
+      "dependencies": {"forge": "55.0.3", "forgegradle": "6.0.54", "reobf": false, "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
       "adapters": ["common/src/main/java", "adapters/shared", "adapters/forge", "adapters/commands-modern"],
       "api": {"MinecraftData": "all", "FunctionExecution": "1.21-1.21.10", "ItemProperties": "1.21.2-1.21.10", "MobEffectState": "1.21.2-1.21.10", "PackFormats": "1.20.6-1.21.5", "PlayerContext": "1.20.6-1.21.8"}
     },
@@ -279,7 +279,7 @@
     },
     {
       "minecraft": "1.21.6", "loader": "forge", "java": 21,
-      "dependencies": {"forge": "56.0.0", "forgegradle": "6.0.36", "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
+      "dependencies": {"forge": "56.0.0", "forgegradle": "6.0.54", "reobf": false, "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
       "adapters": ["common/src/main/java", "adapters/shared", "adapters/forge", "adapters/commands-modern"],
       "api": {"MinecraftData": "all", "FunctionExecution": "1.21-1.21.10", "ItemProperties": "1.21.2-1.21.10", "MobEffectState": "1.21.2-1.21.10", "PackFormats": "1.21.6-1.21.8", "PlayerContext": "1.20.6-1.21.8"}
     },
@@ -297,7 +297,7 @@
     },
     {
       "minecraft": "1.21.7", "loader": "forge", "java": 21,
-      "dependencies": {"forge": "57.0.2", "forgegradle": "6.0.36", "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
+      "dependencies": {"forge": "57.0.2", "forgegradle": "6.0.54", "reobf": false, "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
       "adapters": ["common/src/main/java", "adapters/shared", "adapters/forge", "adapters/commands-modern"],
       "api": {"MinecraftData": "all", "FunctionExecution": "1.21-1.21.10", "ItemProperties": "1.21.2-1.21.10", "MobEffectState": "1.21.2-1.21.10", "PackFormats": "1.21.6-1.21.8", "PlayerContext": "1.20.6-1.21.8"}
     },
@@ -315,7 +315,7 @@
     },
     {
       "minecraft": "1.21.8", "loader": "forge", "java": 21,
-      "dependencies": {"forge": "58.0.0", "forgegradle": "6.0.36", "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
+      "dependencies": {"forge": "58.0.0", "forgegradle": "6.0.54", "reobf": false, "mixin_gradle": "0.7-SNAPSHOT", "mixin": "0.8.5"},
       "adapters": ["common/src/main/java", "adapters/shared", "adapters/forge", "adapters/commands-modern"],
       "api": {"MinecraftData": "all", "FunctionExecution": "1.21-1.21.10", "ItemProperties": "1.21.2-1.21.10", "MobEffectState": "1.21.2-1.21.10", "PackFormats": "1.21.6-1.21.8", "PlayerContext": "1.20.6-1.21.8"}
     },
